@@ -33,72 +33,60 @@
 <!-- DELETE FROM HERE -->
 
 <h1 class="heading-xlarge">Cow</h1>
-
-<form name="test-form" class="form">
-	<h1 class="form-title heading-large">Your details</h1><!-- Full name -->
+<p>Can you use the internet?</p>
+<form name="test-form">
 	<div class="form-group">
-		<label class="form-label-bold" for="full-name">Full name</label>
-		<p class="form-hint">As shown on your birth certificate or passport</p><input type=
-		"text" class="form-control" id="full-name" name="full-name" />
-	</div><!-- National Insurance number -->
-
-	<div class="form-group">
-		<label class="form-label-bold" for="ni-number">National Insurance number
-		<span class="form-hint">It's on your National Insurance card, benefit letter,
-		payslip or P60.<br />
-		For example, 'VO 12 34 56 D'.</span></label> <input type="text" class=
-		"form-control" id="ni-number" name="ni-number" />
-	</div><!-- Date of birth -->
-
-	<div class="form-group">
-		<fieldset>
-			<legend class="form-label-bold">Date of birth</legend>
-
-			<div class="form-date">
-				<p class="form-hint">For example, 31 3 1980</p>
-
-				<div class="form-group form-group-day">
-					<label for="dob-day">Day</label> <input class="form-control" id="dob-day"
-					type="number" pattern="[0-9]*" min="0" max="31" name="dob-day" />
-				</div>
-
-				<div class="form-group form-group-month">
-					<label for="dob-month">Month</label> <input class="form-control" id=
-					"dob-month" type="number" pattern="[0-9]*" min="0" max="12" name="dob-month" />
-				</div>
-
-				<div class="form-group form-group-year">
-					<label for="dob-year">Year</label> <input class="form-control" id="dob-year"
-					type="number" pattern="[0-9]*" min="0" max="2014" name="dob-year" />
-				</div>
-			</div>
-		</fieldset>
-	</div>
-
-	<details class="form-group">
-		<summary role="button" aria-controls="details-content-0" tabindex="0" aria-expanded="false">
-			<span class="summary">Help with date of birth</span>
-		</summary>
-
-		<div class="panel-indent" id="details-content-0" aria-hidden="true" style="display: none;">
-			<p>If you don&rsquo;t know your exact date of birth, use the one you put on
-			official documents (for example, your passport or driving licence).</p>
-
-			<p>If you can&rsquo;t provide your date of birth you&rsquo;ll have to send copies
-			of identity documents through the post.</p>
-		</div>
-	</details>
-
-	<div class="form-group">
-		<a class="button" href="examples-toggle.html">Continue</a>
-
-		<ul>
-			<li><a href="#">Skip this section for now</a></li>
-
-			<li><a href="#">Back</a></li>
-		</ul>
-	</div>
-</form>
+     <label class="block-label selectable" for="radio-1">
+       <input class="selectable" id="radio-1" type="radio" name="radio-order-how" value="online" data-storage="Car">
+        Car
+      </label>
+      <div class="connected optional-section optional-section-radio-order-how" data-toggle-value="online" style="display: none;">
+        <div class="form-group">
+          <label class="form-label-bold" for="col-number">Tell us the car's registration number
+          </label>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" id="account-number" name="account-number" data-storage="online">
+        </div>
+        <div class="form-group">
+          <details>
+            <summary role="button" aria-controls="details-content-0" tabindex="0" aria-expanded="false"><span class="summary">Where can I find the registration number?</span></summary>
+            <div class="panel-indent" id="details-content-0" aria-hidden="true" style="display: none;">
+              <p>
+                Registration numbers are written on large yellow (rear) or white (front) plastic plates on the car and are generally hard to miss.
+              </p>
+            </div>
+          </details>
+        </div>
+      </div>
+      <label class="block-label selectable" for="radio-2">
+        <input id="radio-2" type="radio" name="radio-order-how" value="unicycle" data-storage="Unicycle">
+        Unicycle
+      </label>
+      <div class="connected optional-section optional-section-radio-order-how" data-toggle-value="unicycle" style="display: none;">
+        <div class="form-group">
+          <label class="form-label-bold" for="account-number">How did you learn to unicycle?</label>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" id="account-number" name="account-number">
+        </div>
+        <div class="form-group">
+          <details>
+            <summary role="button" aria-controls="details-content-1" tabindex="0" aria-expanded="false"><span class="summary">Why are you asking me this?</span></summary>
+            <div class="panel-indent" id="details-content-1" aria-hidden="true" style="display: none;">
+              <p>
+                We would like more information about when, or why, you learned to unicycle. E.g.
+								<em>"I was raised as a circus performer"</em>
+								or
+								<em>"Bicycle tyre consumption is double what it should be"</em>
+              </p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+	</form>
+<a href="examples-changebutton.html" class="button">Continue</a>
 
 <!-- STOP DELETING! -->
 
