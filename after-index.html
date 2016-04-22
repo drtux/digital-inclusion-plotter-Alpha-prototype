@@ -32,73 +32,68 @@
 
 <!-- DELETE FROM HERE -->
 
-<h1 class="heading-xlarge">Form Elements</h1>
-
-<form name="test-form" class="form">
-	<h1 class="form-title heading-large">Your details</h1><!-- Full name -->
-	<div class="form-group">
-		<label class="form-label-bold" for="full-name">Full name</label>
-		<p class="form-hint">As shown on your birth certificate or passport</p><input type=
-		"text" class="form-control" id="full-name" name="full-name" />
-	</div><!-- National Insurance number -->
-
-	<div class="form-group">
-		<label class="form-label-bold" for="ni-number">National Insurance number
-		<span class="form-hint">It's on your National Insurance card, benefit letter,
-		payslip or P60.<br />
-		For example, 'VO 12 34 56 D'.</span></label> <input type="text" class=
-		"form-control" id="ni-number" name="ni-number" />
-	</div><!-- Date of birth -->
-
-	<div class="form-group">
-		<fieldset>
-			<legend class="form-label-bold">Date of birth</legend>
-
-			<div class="form-date">
-				<p class="form-hint">For example, 31 3 1980</p>
-
-				<div class="form-group form-group-day">
-					<label for="dob-day">Day</label> <input class="form-control" id="dob-day"
-					type="number" pattern="[0-9]*" min="0" max="31" name="dob-day" />
-				</div>
-
-				<div class="form-group form-group-month">
-					<label for="dob-month">Month</label> <input class="form-control" id=
-					"dob-month" type="number" pattern="[0-9]*" min="0" max="12" name="dob-month" />
-				</div>
-
-				<div class="form-group form-group-year">
-					<label for="dob-year">Year</label> <input class="form-control" id="dob-year"
-					type="number" pattern="[0-9]*" min="0" max="2014" name="dob-year" />
-				</div>
-			</div>
-		</fieldset>
-	</div>
-
-	<details class="form-group">
-		<summary role="button" aria-controls="details-content-0" tabindex="0" aria-expanded="false">
-			<span class="summary">Help with date of birth</span>
-		</summary>
-
-		<div class="panel-indent" id="details-content-0" aria-hidden="true" style="display: none;">
-			<p>If you don&rsquo;t know your exact date of birth, use the one you put on
-			official documents (for example, your passport or driving licence).</p>
-
-			<p>If you can&rsquo;t provide your date of birth you&rsquo;ll have to send copies
-			of identity documents through the post.</p>
-		</div>
-	</details>
-
-	<div class="form-group">
-		<a class="button" href="examples-toggle.html">Continue</a>
-
-		<ul>
-			<li><a href="#">Skip this section for now</a></li>
-
-			<li><a href="#">Back</a></li>
-		</ul>
-	</div>
-</form>
+<h1 class="heading-xlarge playback-container" name="after-form"><span class="playback-cell" data-playback="message">Please choose a persona you think fits this participant</span></h1>
+<table>
+	<thead>
+		<tr>
+			<th colspan="3" class="heading-small">
+				<span>Digital inclusion personas</span>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<a class="block-label" href="after-lvl1.html">
+					<h3>Level 1: Never have, never will</h3>
+					<ul class="list list-bullet">
+						<li>attribute</li>
+						<li>attribute</li>
+						<li>attribute</li>
+					</ul>
+				</a>
+			</td>
+			<td>
+				<h3>Level 2: Was online but no longer</h3>
+				<ul class="list list-bullet">
+					<li>attribute</li>
+					<li>attribute</li>
+					<li>attribute</li>
+				</ul>
+			</td>
+			<td>
+				<h3>Level 3: Willing but unable</h3>
+				<ul class="list list-bullet">
+					<li>attribute</li>
+					<li>attribute</li>
+					<li>attribute</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<span>Level 4:</span>
+			</td>
+			<td>
+				<span>Level 5:</span>
+			</td>
+			<td>
+				<span>Level 6:</span>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<span>Level 7:</span>
+			</td>
+			<td>
+				<span>Level 8:</span>
+			</td>
+			<td>
+				<span>Level 9:</span>
+			</td>
+		</tr>
+	</tbody>
+</table>
 
 <!-- STOP DELETING! -->
 
