@@ -1,3 +1,4 @@
+
 <!doctype html>
 <!--[if lt IE 7 ]> <html class="ie ie6 ie-lt10 ie-lt9 ie-lt8 ie-lt7 no-js" lang="en"> <![endif]-->
 <!--[if IE 7 ]>    <html class="ie ie7 ie-lt10 ie-lt9 ie-lt8 no-js" lang="en"> <![endif]-->
@@ -32,43 +33,45 @@
 
 <!-- DELETE FROM HERE -->
 
-<h1 class="heading-xlarge">Basic Skills</h1>
 
-<form name="during-form" class="form" onsubmit="eval(event)">
+<h1 class="heading-xlarge">Level 1: Never have, never will</h1>
+
+<form name="after-form" class="form" onsubmit="eval(event)">
 	<fieldset class="form-group inline">
-		<legend class="form-label-bold" for="buy-online">Can you buy something online?</legend>
-     		<label class="block-label selectable" for="buy-online"><input class="selectable" id="buy-online-yes" type="radio" name="buy-online" data-storage="1">Yes 
-     		</label>
-			<label class="block-label selectable" for="buy-online"><input class="selectable" id="buy-online-no" type="radio" name="buy-online" data-storage="0">No
-      		</label>
-    </fieldset>
+		<legend class="form-label-bold" for="everUse">Have you ever used the internet?</legend>
+		<p class="form-hint">E.g. </p>
+		<label class="block-label"><input id="everUseY" name="everUse" type="radio" data-storage="1"/>Yes</label>
+		<label class="block-label"><input id="everUseN" name="everUse" type="radio" data-storage="0"/>No</label>
+	</fieldset>
+
 	<fieldset class="form-group inline">
-		<legend class="form-label-bold" for="buy-online">Can you send a personal message via an email or instant message?</legend>
-     		<label class="block-label selectable" for="email-online"><input class="selectable" id="email-online-yes" type="radio" name="email-online" data-storage="1">Yes 
-     		</label>
-			<label class="block-label selectable" for="email-online"><input class="selectable" id="email-online-no" type="radio" name="email-online" data-storage="0">No
-      		</label>
-    </fieldset>
-    	<fieldset class="form-group inline">
-		<legend class="form-label-bold" for="buy-online">Can you use a search engine?</legend>
-     		<label class="block-label selectable" for="engine-online"><input class="selectable" id="engine-online-yes" type="radio" name="engine-online" data-storage="1">Yes 
-     		</label>
-			<label class="block-label selectable" for="engine-online"><input class="selectable" id="engine-online-no" type="radio" name="engine-online" data-storage="0">No
-      		</label>
-    </fieldset>
+		<legend class="form-label-bold" for="wantUse">Do you want to use the internet?</legend>
+		<p class="form-hint">E.g. </p>
+		<label class="block-label"><input id="wantUseY" name="wantUse" type="radio" data-storage="1"/>Yes</label>
+		<label class="block-label"><input id="wantUseN" name="wantUse" type="radio" data-storage="0"/>No</label>
+	</fieldset>
 
-
-
-
-
-
-
+	<div class="form-group">
+		<button class="button" value="submit">Continue</button>
+		<script>
+			function eval(e){
+				e.preventDefault();
+				var form = JSON.parse(localStorage.getItem('after-form'));
+				if ((parseInt(form.everUse)==1) && (parseInt(form.wantUse)==1)){
+					form.message = 'We confirm this person is a</br>level 1: Never have, never will';
+				}else{
+					form.message = 'We suggest this person is not a</br>level 1: Never have, never will</br>Please choose again';
+				}
+				localStorage.setItem('after-form', JSON.stringify(form));
+				window.location.replace('after-index.html');
+			}
+		</script>
+		<ul>
+			<li><a href="after-index.html">Back</a></li>
+		</ul>
+	</div>
 </form>
 
-
-
-<a href="examples-changebutton.html" class="button">Continue</a>
-	
 
 <!-- STOP DELETING! -->
 
@@ -77,4 +80,3 @@
 	<footer data-includefile="footer"></footer>
 </body>
 </html>
-
