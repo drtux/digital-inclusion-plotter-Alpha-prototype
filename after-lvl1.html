@@ -32,9 +32,10 @@
 
 <!-- DELETE FROM HERE -->
 
-<h1 class="heading-xlarge">Level 1: Never have, never will</h1>
+<h1 class="heading-xlarge">1: Never have, never will</h1>
 
-<form name="after-form" class="form" onsubmit="eval(event)">
+<form style="float:right; width: 45%; margin-left: 5%;" name="after-form" class="form" onsubmit="eval(event)">
+	<h2 class="heading-large">Answer these to confirm</h2>
 	<fieldset class="form-group inline">
 		<legend class="form-label-bold" for="everUse">Have you ever used the internet?</legend>
 		<p class="form-hint">E.g. </p>
@@ -56,9 +57,9 @@
 				e.preventDefault();
 				var form = JSON.parse(localStorage.getItem('after-form'));
 				if ((parseInt(form.everUse)==1) && (parseInt(form.wantUse)==1)){
-					form.message = 'We confirm this person is a</br>level 1: Never have, never will';
+					form.message = 'We confirm this person is a</br> 1: Never have, never will</br></br>Please choose a persona you think fits the next participant';
 				}else{
-					form.message = 'We suggest this person is not a</br>level 1: Never have, never will</br>Please choose again';
+					form.message = 'We suggest this person does not fit the profile of</br> 1: Never have, never will</br>Please choose again';
 				}
 				localStorage.setItem('after-form', JSON.stringify(form));
 				window.location.replace('after-index.html');
@@ -69,6 +70,109 @@
 		</ul>
 	</div>
 </form>
+<div style="float: left; width: 50%;">
+	<h3 class="heading-medium">Example Persona</h3>
+	<p>
+	<strong>Name: </strong>Gwen</br>
+	<strong>Age: </strong>64</br>
+	<strong>Job: </strong>Retired</br>
+	<strong>English proficency: </strong>Good
+	</p>
+	
+	<h4 class="heading-small">Bio</h4>
+	<p>Gwen was diagnosed with Alzheimer’s disease 5 years ago and has cataracts in both eyes, which is currently manageable.</p>
+
+	<p>Gwen retired from her job as a dinner lady over 10 years ago, she has no children of her own and many of her friends have either died or moved away from the area. She has never needed to use a computer in any of her previous jobs.</p>
+
+	<h4 class="heading-small">Internet use</h4>
+	<p>N/A</p>
+	
+	<table>
+		<thead><tr><th class="heading-small" colspan="2">Barriers</th></tr></thead>
+		<tbody><tr>
+			<td>Digital literacy</td>
+			<td>No skills</td>
+		</tr>
+		<tr>
+			<td>Literacy</td>
+			<td>Reading is becoming a struggle</td>
+		</tr>
+		<tr>
+			<td>Content literacy</td>
+			<td>No longer understands complicated concepts</td>
+		</tr>
+		<tr>
+			<td>Finance</td>
+			<td>Can’t afford the devices and the assistive technology that she requires</td>
+		</tr>
+		<tr>
+			<td>Accessibility</td>
+			<td>Losing the ability to learn / create connected thoughts</td>
+		</tr>
+		<tr>
+			<td>Connectivity</td>
+			<td>N/A</td>
+		</tr></tbody>
+	</table>
+</div>
+<div style="clear: both;">
+	<h3 class="heading-medium">Example Persona</h3>
+	<p>
+	<strong>Name: </strong>Greg</br>
+	<strong>Age: </strong>48</br>
+	<strong>Job: </strong>Farmer</br>
+	<strong>English proficency: </strong>Good
+	</p>
+
+	<h4 class="heading-small">Bio</h4>
+	<p>Greg has been a sheep farmer in a geographically isolated uplands area for 20 years and comes from a farming background. Greg has seen a lot of changes in agricultural policy over the last 10 years and has increasingly become more dependent on the extra payments he gets from various farming schemes, to keep his farm running.</p>
+
+	<p>Greg's wife, Rose, died of cancer 5 years ago and since then he’s suffered from bouts of depression, finding it difficult to reach out to get help and support from others.</p>
+
+	<p>Rose used to take care of the paperwork, using the old desktop computer, while Greg took care of the farm. When she became too ill to use the computer, Greg got rid of it as it reminded him too much of her in happier, healthier times.</p>
+
+	<p>Greg prefers to have someone check his forms to ensure he has not made mistakes, but since the local Post Office shut down there’s no one to help him unless he drives two hours into the nearest major town.</p>
+
+	<p>One of Greg’s farm labourers told him that computers and software packages have become much easier to use. He suggested that even without the internet, doing his paperwork on the computer would be much faster, so Greg should get a laptop.</p>
+
+	<p>Greg doesn’t want to spend money on a new computer that could be spent on livestock or farm supplies. He knows he would need more training and doesn’t have time to ‘mess around’ with computers.</p>
+
+	<h4 class="heading-small">Internet use</h4>
+	<p>N/A</p>
+	
+	<table>
+		<thead>
+			<tr>
+				<th class="heading-small" colspan="2">Barriers</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Digital literacy</td>
+				<td>No skills</td>
+			</tr>
+		<tr>
+				<td>Literacy</td>
+				<td>Competent reader</td>
+			</tr>
+			<tr>
+				<td>Content literacy</td>
+				<td>Familiar with the ins and outs of farming life</td>
+		</tr>
+		<tr>
+			<td>Finance</td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td>Accessibility</td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td>Connectivity</td>
+			<td>No devices, no broadband connectivity in area</td>
+		</tr></tbody>
+	</table>
+</div>
 
 <!-- STOP DELETING! -->
 
