@@ -1,3 +1,15 @@
+.card{
+	background: #dee0e2;
+	width: 25%;
+	margin-left: 15px;
+	margin-right: 15px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding-right: 15px;
+	padding-left: 15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
 
 .instructions {
 	padding: 20px;
