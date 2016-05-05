@@ -3,6 +3,20 @@ function unWrapPlaceholder(){
   $("#proposition-name").load("service-name.txt");
 }
 
+function eval(e,l){
+	var level = l;
+
+	e.preventDefault();
+	var form = JSON.parse(localStorage.getItem('after-form'));
+	if ((parseInt(form.everUse)==1) && (parseInt(form.wantUse)==1)){
+		form.message = 'We confirm this person is a</br>'+ level +'</br>Please choose a persona you think fits the next participant';
+	}else{
+		form.message = 'We suggest this person does not fit the profile of</br>'+ level +'</br>Please choose again';
+	}
+	localStorage.setItem('after-form', JSON.stringify(form));
+	window.location.replace('after-index.html');    
+}
+
 $( document ).ready(function() {
   $('[data-includefile]').each(function(){
     var file = $(this).attr("data-includefile");

@@ -34,7 +34,7 @@
 
 <h1 class="heading-xlarge">1: Never have, never will</h1>
 
-<form style="float:right; width: 45%; margin-left: 5%;" name="after-form" class="form" onsubmit="eval(event)">
+<form style="float:right; width: 45%; margin-left: 5%;" name="after-form" class="form" onsubmit="eval(event, '1: Never have, never will')">
 	<h2 class="heading-large">Answer these to confirm</h2>
 	<fieldset class="form-group inline">
 		<legend class="form-label-bold" for="everUse">Have you ever used the internet?</legend>
@@ -52,19 +52,6 @@
 
 	<div class="form-group">
 		<button class="button" value="submit">Continue</button>
-		<script>
-			function eval(e){
-				e.preventDefault();
-				var form = JSON.parse(localStorage.getItem('after-form'));
-				if ((parseInt(form.everUse)==1) && (parseInt(form.wantUse)==1)){
-					form.message = 'We confirm this person is a</br> 1: Never have, never will</br></br>Please choose a persona you think fits the next participant';
-				}else{
-					form.message = 'We suggest this person does not fit the profile of</br> 1: Never have, never will</br>Please choose again';
-				}
-				localStorage.setItem('after-form', JSON.stringify(form));
-				window.location.replace('after-index.html');
-			}
-		</script>
 		<ul>
 			<li><a href="after-index.html">Back</a></li>
 		</ul>
