@@ -33,7 +33,7 @@ function eval(e,l){
   switch(parseInt(level.charAt(0)))
   {
     case 6: //subset of skills
-      if ((skill != 4) && (correct == total)){
+      if (((skill < 4)&&(skill >0)) && (correct == total)){
         result = true;
       }
       break;
