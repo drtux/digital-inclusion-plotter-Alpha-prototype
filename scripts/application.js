@@ -9,23 +9,56 @@ function eval(e,l){
 	e.preventDefault();
 	var form = JSON.parse(localStorage.getItem('after-form'));
   var total = 0;
+  var skill = 0;
   var correct = 0;
+  var result = false;
+  var message = {msg:" ", instruction:"Please choose a persona"};
 
   for (var question in form) {
-      if (form.hasOwnProperty(question)) {
-          if (parseInt(form[question])==1){
-            correct++;
-          }
-          total++;
+    if (form.hasOwnProperty(question)) {
+      if (parseInt(form[question]) == 1){//yes
+        correct++;
+        total++;
+      } else if (parseInt(form[question]) == 0){//no
+        total++;
+      } else if (parseInt(form[question]) == -1){//skill yes
+        skill++;
+      } else{ //if (parseInt(form[question]) == -2){//skill no
+        //do nothing
       }
+      
+    }
   }
 
-	if (correct == total){
-		form.message = "We confirm your choise of "+ level +"</br></br>Please choose a persona you think fits the next participant";
-	}else{
-		form.message = "We suggest your choice doesn't fit the profile of "+ level +"</br></br>Please choose again";
-	}
-	localStorage.setItem('after-form', JSON.stringify(form));
+  switch(parseInt(level.charAt(0)))
+  {
+    case 6: //subset of skills
+      if ((skill != 4) && (correct == total)){
+        result = true;
+      }
+      break;
+    case 7: 
+    case 8://all skills
+      if ((skill == 4) && (correct == total)){
+        result = true;
+      }
+      break;
+    default: 
+      if ((correct == total)){
+        result = true;
+      }
+  }
+  
+
+  if (result){
+    message.msg = "We confirm your choise of "+ level + "</br></br>";
+    message.instruction = "Please choose a persona for your next participant";
+  }else{
+    message.msg = "We suggest the participant dosen't fit the profile of "+ level + "</br></br>";
+    message.instruction = "Please choose a new persona";
+  }
+	localStorage.setItem('message', JSON.stringify(message));
+  localStorage.removeItem('after-form');
 	window.location.replace('after-index.html');    
 }
 
