@@ -8,10 +8,22 @@ function eval(e,l){
 
 	e.preventDefault();
 	var form = JSON.parse(localStorage.getItem('after-form'));
-	if ((parseInt(form.everUse)==1) && (parseInt(form.wantUse)==1)){
-		form.message = 'We confirm this person is a</br>'+ level +'</br>Please choose a persona you think fits the next participant';
+  var total = 0;
+  var correct = 0;
+
+  for (var question in form) {
+      if (form.hasOwnProperty(question)) {
+          if (parseInt(form[question])==1){
+            correct++;
+          }
+          total++;
+      }
+  }
+
+	if (correct == total){
+		form.message = "We confirm your choise of "+ level +"</br></br>Please choose a persona you think fits the next participant";
 	}else{
-		form.message = 'We suggest this person does not fit the profile of</br>'+ level +'</br>Please choose again';
+		form.message = "We suggest your choice doesn't fit the profile of "+ level +"</br></br>Please choose again";
 	}
 	localStorage.setItem('after-form', JSON.stringify(form));
 	window.location.replace('after-index.html');    

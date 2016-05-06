@@ -11,6 +11,11 @@
 	padding-bottom: 5px;
 }
 
+.cardholder{
+	display: flex;
+	flex-flow: wrap row;
+}
+
 .instructions {
 	padding: 20px;
 	border: 1px solid #990000;
