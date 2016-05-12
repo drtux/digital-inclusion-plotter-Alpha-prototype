@@ -1,6 +1,6 @@
 function unWrapPlaceholder(){
   $(this).contents().unwrap();
-  $("#proposition-name").load("service-name.txt");
+  $("#proposition-name").html("Digital Inclusion Plotter");
 }
 
 function eval(e,l){
@@ -33,7 +33,7 @@ function eval(e,l){
   switch(parseInt(level.charAt(0)))
   {
     case 6: //subset of skills
-      if (((skill < 4)&&(skill >0)) && (correct == total)){
+      if (((skill < 4) && (skill >0)) && (correct == total)){
         result = true;
       }
       break;
