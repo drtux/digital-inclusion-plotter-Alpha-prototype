@@ -10,14 +10,14 @@ function eval(e,l){
 	var form = JSON.parse(localStorage.getItem('after-form'));
   var total = 0;
   var skill = 0;
-  var correct = 0;
+  var yes = 0;
   var result = false;
   var message = {msg:" ", instruction:"Please choose a persona"};
 
   for (var question in form) {
     if (form.hasOwnProperty(question)) {
       if (parseInt(form[question]) == 1){//yes
-        correct++;
+        yes++;
         total++;
       } else if (parseInt(form[question]) == 0){//no
         total++;
@@ -32,19 +32,36 @@ function eval(e,l){
 
   switch(parseInt(level.charAt(0)))
   {
+    case 1://Not used and don't want to
+      if (yes== 0){
+        result = true;
+      }
+      break;
+    case 2://Yes used but no longer
+      if ((parseInt(form['2:q1']) == 1) && (parseInt(form['2:q2']) == 0)){
+        result = true;
+      }
+      break;
+    case 3://Can't access but is willing
+      if ((parseInt(form['3:q1']) == 0) && (parseInt(form['3:q2']) == 1)){
+        result = true;
+      }
+      break;
+    //case 4: Default route
+    //case 5: Default route
     case 6: //subset of skills
-      if (((skill < 4) && (skill >0)) && (correct == total)){
+      if (((skill < 4) && (skill >0)) && (yes == total)){
         result = true;
       }
       break;
     case 7: 
     case 8://all skills
-      if ((skill == 4) && (correct == total)){
+      if ((skill == 4) && (yes == total)){
         result = true;
       }
       break;
     default: 
-      if ((correct == total)){
+      if ((yes == total)){
         result = true;
       }
   }
