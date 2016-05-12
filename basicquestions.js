@@ -32,45 +32,6 @@
 
 <!-- DELETE FROM HERE -->
 
-<h1 class="heading-xlarge">Basic Skills</h1>
-
-<form name="during-form" class="form" onsubmit="eval(event)">
-	<fieldset class="form-group inline">
-		<legend class="form-label-bold" for="buy-online">Can you buy something online?</legend>
-     		<label class="block-label selectable" for="buy-online"><input class="selectable" id="buy-online-yes" type="radio" name="buy-online" data-storage="1">Yes 
-     		</label>
-			<label class="block-label selectable" for="buy-online"><input class="selectable" id="buy-online-no" type="radio" name="buy-online" data-storage="0">No
-      		</label>
-    </fieldset>
-	<fieldset class="form-group inline">
-		<legend class="form-label-bold" for="buy-online">Can you send a personal message via an email or instant message?</legend>
-     		<label class="block-label selectable" for="email-online"><input class="selectable" id="email-online-yes" type="radio" name="email-online" data-storage="1">Yes 
-     		</label>
-			<label class="block-label selectable" for="email-online"><input class="selectable" id="email-online-no" type="radio" name="email-online" data-storage="0">No
-      		</label>
-    </fieldset>
-    	<fieldset class="form-group inline">
-		<legend class="form-label-bold" for="buy-online">Can you use a search engine?</legend>
-     		<label class="block-label selectable" for="engine-online"><input class="selectable" id="engine-online-yes" type="radio" name="engine-online" data-storage="1">Yes 
-     		</label>
-			<label class="block-label selectable" for="engine-online"><input class="selectable" id="engine-online-no" type="radio" name="engine-online" data-storage="0">No
-      		</label>
-    </fieldset>
-
-</form>
-
-
-
-<a href="examples-changebutton.html" class="button">Continue</a>
-
-<script> var el = document.get //Find buy something online
-
-
-
-
-</script>
-	
-
 <!-- STOP DELETING! -->
 
 
@@ -78,4 +39,3 @@
 	<footer data-includefile="footer"></footer>
 </body>
 </html>
-
