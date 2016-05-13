@@ -3,37 +3,74 @@ function unWrapPlaceholder(){
   $("#proposition-name").html("Digital Inclusion Plotter");
 }
 
-function eval(e,l){
-	var level = l;
+function submission(form, result, messageing, destination){
+  var message = {msg: " ", instruction:" "};
+  
+  if (result){
+    message.msg = messageing.msgT + messageing.level + "</br></br>";
+    message.instruction = messageing.instructionT;
+  }else{
+    message.msg = messageing.msgF + messageing.level + "</br></br>";
+    message.instruction = messageing.instructionF;
+  }
 
-	e.preventDefault();
-	var form = JSON.parse(localStorage.getItem('after-form'));
-  var total = 0;
-  var skill = 0;
-  var yes = 0;
-  var result = false;
-  var message = {msg:" ", instruction:"Please choose a persona"};
+  localStorage.setItem('message-' + form, JSON.stringify(message));
+  localStorage.removeItem(form);
+  window.location.replace(destination);
+}
+
+function formEval(form){
+  var eval = {yes:0, yesTotal:0, skill:0, skillTotal:0}
 
   for (var question in form) {
     if (form.hasOwnProperty(question)) {
       if (parseInt(form[question]) == 1){//yes
-        yes++;
-        total++;
+        eval.yes++;
+        eval.yesTotal++;
       } else if (parseInt(form[question]) == 0){//no
-        total++;
+        eval.yesTotal++;
       } else if (parseInt(form[question]) == -1){//skill yes
-        skill++;
+        eval.skill++;
+        eval.skillTotal++;
       } else{ //if (parseInt(form[question]) == -2){//skill no
-        //do nothing
+        eval.skillTotal++;
       }
-      
     }
   }
+  return eval;
+}
 
-  switch(parseInt(level.charAt(0)))
-  {
+function duringEval(e,l){
+  e.preventDefault();
+
+  var form = JSON.parse(localStorage.getItem('during-form'));
+  var result = false;
+
+  formEval(form);
+
+  // ---> Put evaluation method here <---
+
+  submission('during-form', result,
+    {
+      level:l,
+      msgT:"We confirm your choise of ", 
+      instructionT:"Please choose a persona for your next participant", 
+      msgF:"We suggest the participant dosen't fit the profile of ", 
+      instructionF:"Please choose a new persona"
+    }, 'during-index.html');
+}
+
+function afterEval(e,l){
+	e.preventDefault();
+	var form = JSON.parse(localStorage.getItem('after-form'));
+  var result = false;
+
+  var eval = formEval(form);
+
+  switch(parseInt(l.charAt(0)))
+  {//Get the # in first char of the level descrription string
     case 1://Not used and don't want to
-      if (yes== 0){
+      if (eval.yes== 0){
         result = true;
       }
       break;
@@ -50,33 +87,30 @@ function eval(e,l){
     //case 4: Default route
     //case 5: Default route
     case 6: //subset of skills
-      if (((skill < 4) && (skill >0)) && (yes == total)){
+      if (((eval.skill < eval.skillTotal) && (eval.skill > 0)) && (eval.yes == eval.yesTotal)){
         result = true;
       }
       break;
     case 7: 
     case 8://all skills
-      if ((skill == 4) && (yes == total)){
+      if ((eval.skill == eval.skillTotal) && (eval.yes == eval.yesTotal)){
         result = true;
       }
       break;
     default: 
-      if ((yes == total)){
+      if ((eval.yes == eval.yesTotal)){
         result = true;
       }
   }
-  
 
-  if (result){
-    message.msg = "We confirm your choise of "+ level + "</br></br>";
-    message.instruction = "Please choose a persona for your next participant";
-  }else{
-    message.msg = "We suggest the participant dosen't fit the profile of "+ level + "</br></br>";
-    message.instruction = "Please choose a new persona";
-  }
-	localStorage.setItem('message', JSON.stringify(message));
-  localStorage.removeItem('after-form');
-	window.location.replace('after-index.html');    
+  submission('after-form', result,
+    {
+      level:l,
+      msgT:"We confirm your choise of ", 
+      instructionT:"Please choose a persona for your next participant", 
+      msgF:"We suggest the participant dosen't fit the profile of ", 
+      instructionF:"Please choose a new persona"
+    }, 'after-index.html');
 }
 
 $( document ).ready(function() {
