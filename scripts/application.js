@@ -49,8 +49,8 @@ function duringEval(e){
   var eval = formEval(form);
     if (eval.skill == eval.skillTotal){result=true}
       localStorage.removeItem(form);
-    if (result) {window.location.replace('during-everown.html');}
-        else {window.location.replace('during-lrnnewnohlp.html');}
+    if (result) {window.location.replace('during-lrnnewnohlp.html');}
+        else {window.location.replace('during-everown.html');}
   
 
   // ---> Put evaluation method here <---
