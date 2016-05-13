@@ -40,24 +40,22 @@ function formEval(form){
   return eval;
 }
 
-function duringEval(e,l){
+function duringEval(e){
   e.preventDefault();
 
   var form = JSON.parse(localStorage.getItem('during-form'));
   var result = false;
 
-  formEval(form);
+  var eval = formEval(form);
+    if (eval.skill == eval.skillTotal){result=true}
+      localStorage.removeItem(form);
+    if (result) {window.location.replace('during-lrnnewnohlp.html');}
+        else {window.location.replace('during-everown.html');}
+  
 
   // ---> Put evaluation method here <---
 
-  submission('during-form', result,
-    {
-      level:l,
-      msgT:"We confirm your choise of ", 
-      instructionT:"Please choose a persona for your next participant", 
-      msgF:"We suggest the participant dosen't fit the profile of ", 
-      instructionF:"Please choose a new persona"
-    }, 'during-index.html');
+  
 }
 
 function afterEval(e,l){
