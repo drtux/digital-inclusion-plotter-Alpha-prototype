@@ -7,7 +7,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Digital Inclusion Plotter</title>
-	<meta name="author" content="Ben Walker"/>
+	<meta name="author" content="Tom Harrop" />
 	<meta name="Copyright" content="Open Government Licence v3.0, except where otherwise stated" />
 	<!--[if gt IE 8]><!--><link href="govuk-assets/stylesheets/govuk-template.css?0.12.0" media="screen" rel="stylesheet" type="text/css" /><!--<![endif]-->
 	<!--[if IE 6]><link href="govuk-assets/stylesheets/govuk-template-ie6.css?0.12.0" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
@@ -15,10 +15,10 @@
 	<!--[if IE 8]><link href="govuk-assets/stylesheets/govuk-template-ie8.css?0.12.0" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
 	<link href="govuk-assets/stylesheets/govuk-template-print.css?0.12.0" media="print" rel="stylesheet" type="text/css" />
 	<link href="govuk-assets/application.css" media="all" rel="stylesheet" type="text/css" />
-	<!--<link href="govuk-assets/stylesheets/fonts.css?0.12.0" media="all" rel="stylesheet" type="text/css" /> [REMOVED FOR GDS]-->
+	<link href="govuk-assets/stylesheets/fonts.css?0.12.0" media="all" rel="stylesheet" type="text/css" />
 
 	<script type="text/javascript" src="scripts/jquery.min.js"></script>
-	<script type="text/javascript" src="scripts/form.storage.js"></script>
+	<!--<script type="text/javascript" src="scripts/form.storage.js"></script>-->
 	<script type="text/javascript" src="scripts/application.js"></script>
 	<script type="text/javascript" src="scripts/details.polyfill.js"></script>
 
@@ -30,12 +30,22 @@
 	<main id="content" role="main">
 		<div data-includefile="banner-alpha"></div>
 
-		<h1 class="heading-xlarge" style="margin-bottom: 40px">Digital Inclusion Plotter</h1>
+<!-- DELETE FROM HERE -->
 
-		<p><a class="button" href="routing.html">Start after an interview</a></p>
+		<h1 class="heading-xlarge">Answer these questions to decide on the score</h1>
+
+		<form name="after-form" class="form">
+			<fieldset class="form-group inline question">
+				<legend class="form-label-bold" for="0">Can you use the internet?</legend>
+				<p class="form-hint">E.g. </p>
+				<label class="block-label"><input id="0Y" name="0" type="radio" data-storage="1"/>Yes</label>
+				<label class="block-label"><input id="0N" name="0" type="radio" data-storage="0"/>No</label>
+			</fieldset>
+		</form>
+
+<!-- STOP DELETING! -->
 
 	</main>
-
 	<footer data-includefile="footer"></footer>
 </body>
 </html>
