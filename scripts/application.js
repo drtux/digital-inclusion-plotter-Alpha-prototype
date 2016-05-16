@@ -1,115 +1,179 @@
+var skillStack = [];
+
+var skills = [
+/*0*/	{question:"Can they use a search engine?",
+		 hint:"finding somthing new, help with a problem, somewhere to shop, somwhere to visit, contact detaisl off somthing"},
+
+/*1*/	{question:"Can they send a email or instant message?",
+		 hint:"to keep in contact with family, or freinds, using Outlook, Gmail, WhatsApp, Facebook messenger"},
+
+/*2*/	{question:"Can they buy something online?",
+		 hint:"bargins, weekly shopping, general purchases, specialist goods"},
+
+/*3*/	{question:"Can they fill out a form with personal details?",
+		 hint:"online banking, applications for govenment services, hotel bookings"},
+]
+
+var questions = [
+/*0*/	{question:"Can they use the internet?",
+		 hint:"has a device that can get online at either at home, library, school, mobile, or cafe",
+		 yDest:1, nDest:9},
+
+/*1*/	{question:"Do they want to use the internet?",
+		 hint:"any social media, videos/streaming, news, shopping",
+		 yDest:2, nDest:6},
+
+/*2*/	{question:"Skill questions",
+		 hint:" ",
+		 yDest:3, nDest:5},
+
+/*3*/	{question:"Are they happy to try somthing new online without help?",
+		 hint:" ",
+		 yDest:4, nDest:-7},
+
+/*4*/	{question:"Do they understand the technical processes behind online services?",
+		 hint:"web development, technical knowledge",
+		 yDest:-9, nDest:-8},
+
+/*5*/	{question:"Would they like to learn more about how to use the internet?",
+		 hint:"\"I want to learn how to use the internet to keep in contact with my grandchildren\" - want to use",
+		 yDest:-6, nDest:-5},
+
+/*6*/	{question:"Have they ever used the internet?",
+		 hint:"for any reasonable period, not just once, at any point in their lives",
+		 yDest:7, nDest:-1},
+
+/*7*/	{question:"Do they still use the internet?",
+		 hint:" ",
+		 yDest:8, nDest:-2},
+
+/*8*/	{question:"Are they happy using their personal details on the internet?",
+		 hint:" ",
+		 yDest:-6, nDest:-4},
+
+/*9*/	{question:"Do they want to use the internet?",
+		 hint:"any social media, videos/streaming, news, shopping",
+		 yDest:-3, nDest:6}
+];
+
+
+function eval(name, value){
+
+	$(".question :input").each(function(index){//Delete any un-needed questions (to account for changing minds)
+		if(parseInt($(this).attr('name').charAt(0)) > parseInt(name.charAt(0))){
+			$(this).parent().parent().remove();
+			for (var i=0;i<skillStack.length; i++)
+			{
+				if (skillStack[i].name === name){
+					skillStack.splice(i,1);//Remove the exsisting answer
+					break;//as it will only appear once
+				}
+			}
+		}
+	});
+	$(".level").each(function(index){
+		if(parseInt($(this).attr('name').charAt(0)) >= parseInt(name.charAt(0))){
+			$(this).remove();//Delete any level decisions
+		}
+	});
+
+	var n = 0;
+
+	switch (parseInt(name.charAt(0)))
+	{
+		case 2://Skills question
+			skillStack.push({name:name, value:value});
+			if (skillStack.length == skills.length)
+			{//If all the skills Q's have been answered evaluate them
+				var yes = 0;
+				for (var i = 0; i < skillStack.length; i++)
+				{
+					if (skillStack[i].value == -1)
+					{
+						yes++;
+					}
+				}
+				if (yes == skillStack.length)
+				{//Yes (all)
+					n = questions[parseInt(name.charAt(0))].yDest;
+				}
+				else
+				{//No (sub-set)
+					n = questions[parseInt(name.charAt(0))].nDest;
+				}
+			}
+			break;
+
+		default:
+			if (value == 1)
+			{//Yes
+				n = questions[parseInt(name.charAt(0))].yDest;
+			}
+			else
+			{//No
+				n = questions[parseInt(name.charAt(0))].nDest;
+			}
+			break;
+	}
+
+	if (n>0)
+	{//Its a new question
+		q = questions[n].question;
+		h = questions[n].hint;
+
+		appendQuestion(n,q,h);
+	}
+	else if (n<0)
+	{//Its a level decision
+		appendLevel(n, name);
+	}
+}
+
+function appendQuestion(n, question, hint){
+	var html = " ";
+	if (n == 2)
+	{//Skill question
+		for (var i = 0; i < skills.length; i++){
+			html += "<fieldset class='form-group inline question'><legend class='form-label-bold' for='2:"+i+"'>"+skills[i].question+"</legend><p class='form-hint'>E.g. "+skills[i].hint+"</p><label class='block-label'><input id='2:"+i+"Y' name='2:"+i+"' type='radio' data-storage='-1'/>Yes</label><label class='block-label'><input id='2:"+i+"N' name='2:"+i+"' type='radio' data-storage='-2'/>No</label></fieldset>";
+		}
+	}
+	else
+	{//Normal questions
+		html = "<fieldset class='form-group inline question' name='set"+n+"'><legend class='form-label-bold' for='"+n+"'>"+question+"</legend><p class='form-hint'> E.g. "+hint+"</p><label class='block-label'><input id='"+n+"Y' name='"+n+"' type='radio' data-storage='1'/>Yes</label><label class='block-label'><input id='"+n+"N' name='"+n+"' type='radio' value='0'/>No</label></fieldset>";
+	}
+	$('.form').append(html)
+	var latestElement = document.getElementsByName('set'+n);
+	latestElement[0].scrollIntoView();
+}
+
+function appendLevel(level, name){
+	var html = "<div class='level' name='"+name+"'><p class='panel-indent'>They are a level ";
+	switch(level){
+		case -1: html += '1: Never have, never will'; break;
+		case -2: html += '2: Was online but no longer'; break;
+		case -3: html += '3: Willing and unable'; break;
+		case -4: html += '4: Reluctantly online'; break;
+		case -5: html += '5: Learning the ropes'; break;
+		case -6: html += '6: Task specific'; break;
+		case -7: html += '7: Basic digital skills'; break;
+		case -8: html += '8: Confident'; break;
+		case -9: html += '9: Expert'; break;
+	}
+	html += "</p> <a class='button' href='routing.html'>Continue</a></div>";
+	$('.form').append(html);
+}
+
+
+				
+
+
 function unWrapPlaceholder(){
   $(this).contents().unwrap();
   $("#proposition-name").html("Digital Inclusion Plotter");
 }
 
-function submission(form, result, messageing, destination){
-  var message = {msg: " ", instruction:" "};
-  
-  if (result){
-    message.msg = messageing.msgT + messageing.level + "</br></br>";
-    message.instruction = messageing.instructionT;
-  }else{
-    message.msg = messageing.msgF + messageing.level + "</br></br>";
-    message.instruction = messageing.instructionF;
-  }
 
-  localStorage.setItem('message-' + form, JSON.stringify(message));
-  localStorage.removeItem(form);
-  window.location.replace(destination);
-}
 
-function formEval(form){
-  var eval = {yes:0, yesTotal:0, skill:0, skillTotal:0}
-
-  for (var question in form) {
-    if (form.hasOwnProperty(question)) {
-      if (parseInt(form[question]) == 1){//yes
-        eval.yes++;
-        eval.yesTotal++;
-      } else if (parseInt(form[question]) == 0){//no
-        eval.yesTotal++;
-      } else if (parseInt(form[question]) == -1){//skill yes
-        eval.skill++;
-        eval.skillTotal++;
-      } else{ //if (parseInt(form[question]) == -2){//skill no
-        eval.skillTotal++;
-      }
-    }
-  }
-  return eval;
-}
-
-function duringEval(e){
-  e.preventDefault();
-
-  var form = JSON.parse(localStorage.getItem('during-form'));
-  var result = false;
-
-  var eval = formEval(form);
-    if (eval.skill == eval.skillTotal){result=true}
-      localStorage.removeItem(form);
-    if (result) {window.location.replace('during-lrnnewnohlp.html');}
-        else {window.location.replace('during-everown.html');}
-  
-
-  // ---> Put evaluation method here <---
-
-  
-}
-
-function afterEval(e,l){
-	e.preventDefault();
-	var form = JSON.parse(localStorage.getItem('after-form'));
-  var result = false;
-
-  var eval = formEval(form);
-
-  switch(parseInt(l.charAt(0)))
-  {//Get the # in first char of the level descrription string
-    case 1://Not used and don't want to
-      if (eval.yes== 0){
-        result = true;
-      }
-      break;
-    case 2://Yes used but no longer
-      if ((parseInt(form['2:q1']) == 1) && (parseInt(form['2:q2']) == 0)){
-        result = true;
-      }
-      break;
-    case 3://Can't access but is willing
-      if ((parseInt(form['3:q1']) == 0) && (parseInt(form['3:q2']) == 1)){
-        result = true;
-      }
-      break;
-    //case 4: Default route
-    //case 5: Default route
-    case 6: //subset of skills
-      if (((eval.skill < eval.skillTotal) && (eval.skill > 0)) && (eval.yes == eval.yesTotal)){
-        result = true;
-      }
-      break;
-    case 7: 
-    case 8://all skills
-      if ((eval.skill == eval.skillTotal) && (eval.yes == eval.yesTotal)){
-        result = true;
-      }
-      break;
-    default: 
-      if ((eval.yes == eval.yesTotal)){
-        result = true;
-      }
-  }
-
-  submission('after-form', result,
-    {
-      level:l,
-      msgT:"We confirm your choise of ", 
-      instructionT:"Please choose a persona for your next participant", 
-      msgF:"We suggest the participant dosen't fit the profile of ", 
-      instructionF:"Please choose a new persona"
-    }, 'after-index.html');
-}
 
 $( document ).ready(function() {
   $('[data-includefile]').each(function(){
@@ -118,14 +182,14 @@ $( document ).ready(function() {
   });
 
   //write to local storage
-  $('form').storeForm();
+  //$('form').storeForm();
   //play back from local storage
-  $('.playback-container').getForm();
+  //$('.playback-container').getForm();
   
   //toggle stuff by Ed Horsford @ GDS
   $('body').on('change', 'input', function(){
     var $this = $(this);
-    // toggle optional sections
+    /* toggle optional sections
     if ($this.is(':checkbox')){
       var $toggleTarget = $('.optional-section-'+$this.attr('name') + '[data-toggle-value="'+$this.val() + '"]');
       console.log('.optional-section-'+$this.attr('name') + '[data-toggle-value="'+$this.val() + '"]');
@@ -138,7 +202,8 @@ $( document ).ready(function() {
       $toggleTarget.each(function(){
         $(this).toggle($this.val() == $(this).attr('data-toggle-value'));
       });
-    }
+    }*/
+    eval($this.attr('name'),parseInt($this.attr('data-storage')));
   });
 
   $('[data-button-page]').change(function(){

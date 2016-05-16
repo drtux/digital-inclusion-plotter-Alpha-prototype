@@ -6,7 +6,7 @@
 <!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
 	<meta charset="utf-8">
-	<title>GOV.UK</title>
+	<title>Digital Inclusion Plotter</title>
 	<meta name="author" content="Tom Harrop" />
 	<meta name="Copyright" content="Open Government Licence v3.0, except where otherwise stated" />
 	<!--[if gt IE 8]><!--><link href="govuk-assets/stylesheets/govuk-template.css?0.12.0" media="screen" rel="stylesheet" type="text/css" /><!--<![endif]-->
@@ -18,7 +18,7 @@
 	<link href="govuk-assets/stylesheets/fonts.css?0.12.0" media="all" rel="stylesheet" type="text/css" />
 
 	<script type="text/javascript" src="scripts/jquery.min.js"></script>
-	<script type="text/javascript" src="scripts/form.storage.js"></script>
+	<!--<script type="text/javascript" src="scripts/form.storage.js"></script>-->
 	<script type="text/javascript" src="scripts/application.js"></script>
 	<script type="text/javascript" src="scripts/details.polyfill.js"></script>
 
@@ -32,12 +32,18 @@
 
 <!-- DELETE FROM HERE -->
 
-<h1 class="heading-xlarge">Would you try something new online without help?</h1>
-<a href="" class="button">Yes</a>
-<a href="during-lrnnewnohlp.html" class="button">No</a>
+		<h1 class="heading-xlarge">Answer these questions to decide on the score</h1>
+
+		<form name="after-form" class="form">
+			<fieldset class="form-group inline question">
+				<legend class="form-label-bold" for="0">Can they use the internet?</legend>
+				<p class="form-hint">E.g. </p>
+				<label class="block-label"><input id="0Y" name="0" type="radio" data-storage="1"/>Yes</label>
+				<label class="block-label"><input id="0N" name="0" type="radio" data-storage="0"/>No</label>
+			</fieldset>
+		</form>
 
 <!-- STOP DELETING! -->
-
 
 	</main>
 	<footer data-includefile="footer"></footer>
