@@ -1,28 +1,59 @@
-function unWrapPlaceholder(){
-  $(this).contents().unwrap();
-  $("#proposition-name").html("Digital Inclusion Plotter");
-}
-
 var skillStack = [];
 
 var skills = [
-/*0*/	{question:"Can you use a search engine?", hint:"finding somthing new, help with a problem, somewhere to shop, somwhere to visit, contact detaisl off somthing"},
-/*1*/	{question:"Can your send a email or instant message?", hint:"to keep in contact with family, or freinds, using Outlook, Gmail, WhatsApp, Facebook messenger"},
-/*2*/	{question:"Can you buy something online?", hint:"bargins, weekly shopping, general purchases, specialist goods"},
-/*3*/	{question:"Can you fill out a form with personal details?", hint:"online banking, applications for govenment services, hotel bookings"},
+/*0*/	{question:"Can they use a search engine?",
+		 hint:"finding somthing new, help with a problem, somewhere to shop, somwhere to visit, contact detaisl off somthing"},
+
+/*1*/	{question:"Can they send a email or instant message?",
+		 hint:"to keep in contact with family, or freinds, using Outlook, Gmail, WhatsApp, Facebook messenger"},
+
+/*2*/	{question:"Can they buy something online?",
+		 hint:"bargins, weekly shopping, general purchases, specialist goods"},
+
+/*3*/	{question:"Can they fill out a form with personal details?",
+		 hint:"online banking, applications for govenment services, hotel bookings"},
 ]
 
 var questions = [
-/*0*/	{question:"Can you use the internet?", hint:"", yDest:1, nDest:9},
-/*1*/	{question:"Do you want to use the internet?", hint:" ", yDest:2, nDest:6},
-/*2*/	{question:"Skill questions", hint:" ", yDest:3, nDest:5},
-/*3*/	{question:"Are you happy to try somthing new online without help?", hint:" ", yDest:4, nDest:-7},
-/*4*/	{question:"Do you understand the technical processes behind online services?", hint:" ", yDest:-9, nDest:-8},
-/*5*/	{question:"Do you access the internet on your own, without help?", hint:" ", yDest:-6, nDest:-5},
-/*6*/	{question:"Have you ever used the internet?", hint:"for any reasonable period, not just once, at any point in their lives", yDest:7, nDest:-1},
-/*7*/	{question:"Do you still use the internet?", hint:" ", yDest:8, nDest:-2},
-/*8*/	{question:"Are you happy using your personal details on the internet?", hint:" ", yDest:-6, nDest:-4},
-/*9*/	{question:"Do you want to use the internet?", hint:" ", yDest:-3, nDest:6}
+/*0*/	{question:"Can they use the internet?",
+		 hint:"has a device that can get online at either at home, library, school, mobile, or cafe",
+		 yDest:1, nDest:9},
+
+/*1*/	{question:"Do they want to use the internet?",
+		 hint:"any social media, videos/streaming, news, shopping",
+		 yDest:2, nDest:6},
+
+/*2*/	{question:"Skill questions",
+		 hint:" ",
+		 yDest:3, nDest:5},
+
+/*3*/	{question:"Are they happy to try somthing new online without help?",
+		 hint:" ",
+		 yDest:4, nDest:-7},
+
+/*4*/	{question:"Do they understand the technical processes behind online services?",
+		 hint:"web development, technical knowledge",
+		 yDest:-9, nDest:-8},
+
+/*5*/	{question:"Would they like to learn more about how to use the internet?",
+		 hint:"\"I want to learn how to use the internet to keep in contact with my grandchildren\" - want to use",
+		 yDest:-6, nDest:-5},
+
+/*6*/	{question:"Have they ever used the internet?",
+		 hint:"for any reasonable period, not just once, at any point in their lives",
+		 yDest:7, nDest:-1},
+
+/*7*/	{question:"Do they still use the internet?",
+		 hint:" ",
+		 yDest:8, nDest:-2},
+
+/*8*/	{question:"Are they happy using their personal details on the internet?",
+		 hint:" ",
+		 yDest:-6, nDest:-4},
+
+/*9*/	{question:"Do they want to use the internet?",
+		 hint:"any social media, videos/streaming, news, shopping",
+		 yDest:-3, nDest:6}
 ];
 
 
@@ -116,7 +147,7 @@ function appendQuestion(n, question, hint){
 }
 
 function appendLevel(level, name){
-	var html = "<div class='level' name='"+name+"'><p class='panel-indent'>You are a level ";
+	var html = "<div class='level' name='"+name+"'><p class='panel-indent'>They are a level ";
 	switch(level){
 		case -1: html += '1: Never have, never will'; break;
 		case -2: html += '2: Was online but no longer'; break;
@@ -132,13 +163,14 @@ function appendLevel(level, name){
 	$('.form').append(html);
 }
 
-function append(html){
 
-}
 				
 
 
-
+function unWrapPlaceholder(){
+  $(this).contents().unwrap();
+  $("#proposition-name").html("Digital Inclusion Plotter");
+}
 
 
 
