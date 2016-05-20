@@ -8,18 +8,18 @@ var skills = [
 		 hint:"to keep in contact with family, or freinds, using Outlook, Gmail, WhatsApp, Facebook messenger"},
 
 /*2*/	{question:"Can they buy something online?",
-		 hint:"bargins, weekly shopping, general purchases, specialist goods"},
+		 hint:"weekly shopping, general purchases, bargins/offers, specialist goods"},
 
 /*3*/	{question:"Can they fill out a form with personal details?",
 		 hint:"online banking, applications for govenment services, hotel bookings"},
 ]
 
 var questions = [
-/*0*/	{question:"Can they use the internet?",
+/*0*/	{question:"Can they access and use the internet?",
 		 hint:"has a device that can get online at either at home, library, school, mobile, or cafe",
 		 yDest:1, nDest:9},
 
-/*1*/	{question:"Do they want to use the internet?",
+/*1*/	{question:"Are they motivated to use the internet?",
 		 hint:"any social media, videos/streaming, news, shopping",
 		 yDest:2, nDest:6},
 
@@ -28,15 +28,15 @@ var questions = [
 		 yDest:3, nDest:5},
 
 /*3*/	{question:"Are they happy to try somthing new online without help?",
-		 hint:" ",
+		 hint:"totally unsupported use of the internet, will search online for help if they get stuck, doesn't get friends or family involved",
 		 yDest:4, nDest:-7},
 
-/*4*/	{question:"Do they understand the technical processes behind online services?",
-		 hint:"web development, technical knowledge",
+/*4*/	{question:"Do they understand the processes that run online services?",
+		 hint:"has some web development skills, or technical knowledge",
 		 yDest:-9, nDest:-8},
 
 /*5*/	{question:"Would they like to learn more about how to use the internet?",
-		 hint:"\"I want to learn how to use the internet to keep in contact with my grandchildren\" - want to use",
+		 hint:"\"I want to learn how to use the internet to keep in contact with my grandchildren\" - motivated to use",
 		 yDest:-6, nDest:-5},
 
 /*6*/	{question:"Have they ever used the internet?",
@@ -44,14 +44,14 @@ var questions = [
 		 yDest:7, nDest:-1},
 
 /*7*/	{question:"Do they still use the internet?",
-		 hint:" ",
+		 hint:"is activly using the internet currently, and will continue to do so in future",
 		 yDest:8, nDest:-2},
 
 /*8*/	{question:"Are they happy using their personal details on the internet?",
-		 hint:" ",
+		 hint:"in government forms, setting up online accounts i.e social media",
 		 yDest:-6, nDest:-4},
 
-/*9*/	{question:"Do they want to use the internet?",
+/*9*/	{question:"Are they motivated to use the internet?",
 		 hint:"any social media, videos/streaming, news, shopping",
 		 yDest:-3, nDest:6}
 ];
