@@ -28,15 +28,15 @@ var questions = [
 		 yDest:3, nDest:5},
 
 /*3*/	{question:"Are they happy to try somthing new online without help?",
-		 hint:"totally unsupported use of the internet, will search online for help if they get stuck, doesn't get friends or family involved",
+		 hint:"self-supported use of the internet, will search online for help if they get stuck, unlikely to get friends or family involved",
 		 yDest:4, nDest:-7},
 
 /*4*/	{question:"Do they understand the processes that run online services?",
 		 hint:"has some web development skills, or technical knowledge",
 		 yDest:-9, nDest:-8},
 
-/*5*/	{question:"Would they like to learn more about how to use the internet?",
-		 hint:"\"I want to learn how to use the internet to keep in contact with my grandchildren\" - motivated to use",
+/*5*/	{question:"Do they access the internet without help?",
+		 hint:"when they do use the internet for their 'regular' things they rarely need help",
 		 yDest:-6, nDest:-5},
 
 /*6*/	{question:"Have they ever used the internet?",
