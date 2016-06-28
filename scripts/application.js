@@ -11,7 +11,7 @@ var skills = [
 		 hint:"weekly shopping, general purchases, bargins/offers, specialist goods"},
 
 /*3*/	{question:"Can they fill out a form with personal details?",
-		 hint:"online banking, applications for govenment services, hotel bookings"},
+		 hint:"online banking, set up online accounts i.e social media, applications for govenment services"},
 ]
 
 var questions = [
@@ -19,8 +19,8 @@ var questions = [
 		 hint:"has a device that can get online at either at home, library, school, mobile, or cafe",
 		 yDest:1, nDest:9},
 
-/*1*/	{question:"Are they motivated to use the internet?",
-		 hint:"any social media, videos/streaming, news, shopping",
+/*1*/	{question:"Do they enjoy to using the internet?",
+		 hint:"uses the internet recreationally - social media, videos/streaming, news, shopping",
 		 yDest:2, nDest:6},
 
 /*2*/	{question:"Skill questions",
@@ -47,12 +47,12 @@ var questions = [
 		 hint:"is activly using the internet currently, and will continue to do so in future",
 		 yDest:8, nDest:-2},
 
-/*8*/	{question:"Are they happy using their personal details on the internet?",
-		 hint:"in government forms, setting up online accounts i.e social media",
+/*8*/	{question:"Do they see how the internet has benefited them?",
+		 hint:"\"yes, and if I had more skill the sky would be the limit\"",
 		 yDest:-6, nDest:-4},
 
-/*9*/	{question:"Are they motivated to use the internet?",
-		 hint:"any social media, videos/streaming, news, shopping",
+/*9*/	{question:"Do they enjoy to using the internet?",
+		 hint:"uses the internet recreationally - social media, videos/streaming, news, shopping",
 		 yDest:-3, nDest:6}
 ];
 
