@@ -147,21 +147,25 @@ function appendQuestion(n, question, hint){
 }
 
 function appendLevel(level, name){
-	var html = "<div class='level' name='"+name+"'><p class='heading-large panel-indent'>They are a level ";
+	
+	var plot = '';
+	var colour = '';
+
 	switch(level){
-		case -1: html += '1:</br>Never have, never will'; break;
-		case -2: html += '2:</br>Was online but no longer'; break;
-		case -3: html += '3:</br>Willing and unable'; break;
-		case -4: html += '4:</br>Reluctantly online'; break;
-		case -5: html += '5:</br>Learning the ropes'; break;
-		case -6: html += '6:</br>Task specific'; break;
-		case -7: html += '7:</br>Basic digital skills'; break;
-		case -8: html += '8:</br>Confident'; break;
-		case -9: html += '9:</br>Expert'; break;
+		case -1: plot += '1:</br>Never have, never will'; colour = '#DA7357'; break;
+		case -2: plot += '2:</br>Was online but no longer'; colour = '#EA8C5C'; break;
+		case -3: plot += '3:</br>Willing and unable'; colour = '#EC9E5A'; break;
+		case -4: plot += '4:</br>Reluctantly online'; colour = '#F4C15B'; break;
+		case -5: plot += '5:</br>Learning the ropes'; colour = '#F9D45E'; break;
+		case -6: plot += '6:</br>Task specific'; colour = '#EAE05F'; break;
+		case -7: plot += '7:</br>Basic digital skills'; colour = '#D6DA5D'; break;
+		case -8: plot += '8:</br>Confident'; colour = '#B0CC5B'; break;
+		case -9: plot += '9:</br>Expert'; colour = '#9CC55A'; break;
 	}
-	html += "</p> <a class='button' href='routing.html'>Continue</a></div>";
+	var html = "<div class='level' style='"+colour+"' name='"+name+"'><p class='heading-large panel-indent'>They are a level " + plot + "</p> <a class='button' href='routing.html'>Continue</a></div>";
 	$('.form').append(html);
 }
+
 
 
 				
