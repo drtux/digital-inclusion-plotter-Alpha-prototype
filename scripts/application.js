@@ -162,7 +162,7 @@ function appendLevel(level, name){
 		case -8: plot += '8:</br>Confident'; colour = '#B0CC5B'; break;
 		case -9: plot += '9:</br>Expert'; colour = '#9CC55A'; break;
 	}
-	var html = "<div class='level' name='"+name+"'><p class='heading-large panel-indent' style='background-color"+colour+"'>They are a level " + plot + "</p> <a class='button' href='routing.html'>Continue</a></div>";
+	var html = "<div class='level' name='"+name+"'><p class='heading-large panel-indent' style='background-color: "+colour+";'>They are a level " + plot + "</p> <a class='button' href='routing.html'>Continue</a></div>";
 	$('.form').append(html);
 }
 
