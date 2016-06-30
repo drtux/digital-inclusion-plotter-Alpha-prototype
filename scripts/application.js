@@ -147,17 +147,17 @@ function appendQuestion(n, question, hint){
 }
 
 function appendLevel(level, name){
-	var html = "<div class='level' name='"+name+"'><p class='panel-indent'>They are a level ";
+	var html = "<div class='level' name='"+name+"'><p class='heading-large panel-indent'>They are a level ";
 	switch(level){
-		case -1: html += '1: Never have, never will'; break;
-		case -2: html += '2: Was online but no longer'; break;
-		case -3: html += '3: Willing and unable'; break;
-		case -4: html += '4: Reluctantly online'; break;
-		case -5: html += '5: Learning the ropes'; break;
-		case -6: html += '6: Task specific'; break;
-		case -7: html += '7: Basic digital skills'; break;
-		case -8: html += '8: Confident'; break;
-		case -9: html += '9: Expert'; break;
+		case -1: html += '1:</br>Never have, never will'; break;
+		case -2: html += '2:</br>Was online but no longer'; break;
+		case -3: html += '3:</br>Willing and unable'; break;
+		case -4: html += '4:</br>Reluctantly online'; break;
+		case -5: html += '5:</br>Learning the ropes'; break;
+		case -6: html += '6:</br>Task specific'; break;
+		case -7: html += '7:</br>Basic digital skills'; break;
+		case -8: html += '8:</br>Confident'; break;
+		case -9: html += '9:</br>Expert'; break;
 	}
 	html += "</p> <a class='button' href='routing.html'>Continue</a></div>";
 	$('.form').append(html);
