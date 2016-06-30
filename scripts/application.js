@@ -2,16 +2,16 @@ var skillStack = [];
 
 var skills = [
 /*0*/	{question:"Can they use a search engine?",
-		 hint:"finding somthing new, help with a problem, somewhere to shop, somwhere to visit, contact detaisl off somthing"},
+		 hint:"finding something new, help with a problem, somewhere to shop, somewhere to visit, contact details off something"},
 
 /*1*/	{question:"Can they send a email or instant message?",
-		 hint:"to keep in contact with family, or freinds, using Outlook, Gmail, WhatsApp, Facebook messenger"},
+		 hint:"to keep in contact with family, or friends, using Outlook, Gmail, WhatsApp, Facebook messenger"},
 
 /*2*/	{question:"Can they buy something online?",
-		 hint:"weekly shopping, general purchases, bargins/offers, specialist goods"},
+		 hint:"weekly shopping, general purchases, bargains/offers, specialist goods"},
 
 /*3*/	{question:"Can they fill out a form with personal details?",
-		 hint:"online banking, set up online accounts i.e social media, applications for govenment services"},
+		 hint:"online banking, set up online accounts i.e social media, applications for government services"},
 ]
 
 var questions = [
@@ -27,7 +27,7 @@ var questions = [
 		 hint:" ",
 		 yDest:3, nDest:5},
 
-/*3*/	{question:"Are they happy to try somthing new online without help?",
+/*3*/	{question:"Are they happy to try something new online without help?",
 		 hint:"self-supported use of the internet, will search online for help if they get stuck, unlikely to get friends or family involved",
 		 yDest:4, nDest:-7},
 
@@ -44,7 +44,7 @@ var questions = [
 		 yDest:7, nDest:-1},
 
 /*7*/	{question:"Do they still use the internet?",
-		 hint:"is activly using the internet currently, and will continue to do so in future",
+		 hint:"is actively using the internet currently, and will continue to do so in future",
 		 yDest:8, nDest:-2},
 
 /*8*/	{question:"Do they see how the internet has benefited them?",
