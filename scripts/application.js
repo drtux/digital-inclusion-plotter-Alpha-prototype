@@ -15,45 +15,64 @@ var skills = [
 ]
 
 var questions = [
-/*0*/	{question:"Can they access and use the internet?",
-		 hint:"has a device that can get online at either at home, library, school, mobile, or cafe",
-		 yDest:1, nDest:9},
+/*0*/	{question:"Have they ever used the internet?",
+		//  hint:"",
+		 yDest:1, nDest:2},
 
-/*1*/	{question:"Do they enjoy to using the internet?",
-		 hint:"uses the internet recreationally - social media, videos/streaming, news, shopping",
-		 yDest:2, nDest:6},
 
-/*2*/	{question:"Skill questions",
-		 hint:" ",
-		 yDest:3, nDest:5},
+/*1*/	{question:"Do they still use the internet?",
+		//  hint:"",
+		 yDest:3, nDest:2},
 
-/*3*/	{question:"Are they happy to try something new online without help?",
-		 hint:"self-supported use of the internet, will search online for help if they get stuck, unlikely to get friends or family involved",
-		 yDest:4, nDest:-7},
+/*2*/	{question:"Do they want to be online?",
+		 hint:"There are barriers stopping them being online, for example it's too expensive, they lack of confidence or aren't physically able",
+		 yDest:-3, nDest:5},
+		 //If no to 0 and 2 = Never have, never will
+		 //If yes to 0, then no to 1 and 2 = Was online, but no longer
+		 //Yes = Willing but unable
+/*3*/	{question:"Do they like using the internet?",
+		//  hint:"They are positive about the benefits of being online and learning digital skills",
+		//Yes, mostly
+		//Not really, it's a chore
+		 yDest:4, nDest:-4},
 
-/*4*/	{question:"Do they understand the processes that run online services?",
-		 hint:"has some web development skills, or technical knowledge",
+/*4*/	{question:"Do they need help completing tasks online?",
+		//  hint:"",
+		//Often = Learning the ropes
+		//Only with new or unfamiliar tasks = 5
+		//Rarely or never = 5
+
+		 yDest:-5, nDest:5},
+
+/*5*/	{question:"Can they:",
+			//<ol> list
+			//use email
+			//use search engines
+			//set up an account (eg an online bank account)
+			//buy things online
+		 hint:"",
+		 //Yes = if 5 = 'only with new tasks' then Basic digital
+		 //No, they'd need help
+		 yDest:6, nDest:-5},
+		 //Y =
+
+/*6*/	{question:"Do they have advanced digital skills?",
+		 hint:"They work in tech, can code or have specialist digital knowledge",
 		 yDest:-9, nDest:-8},
+		 //Y = Expert
+		 //N = Confident
 
-/*5*/	{question:"Do they access the internet without help?",
-		 hint:"when they do use the internet for their 'regular' things they rarely need help",
-		 yDest:-6, nDest:-5},
-
-/*6*/	{question:"Have they ever used the internet?",
-		 hint:"for any reasonable period, not just once, at any point in their lives",
-		 yDest:7, nDest:-1},
-
-/*7*/	{question:"Do they still use the internet?",
-		 hint:"is actively using the internet currently, and will continue to do so in future",
-		 yDest:8, nDest:-2},
-
-/*8*/	{question:"Do they see how the internet has benefited them?",
-		 hint:"\"yes, and if I had more skill the sky would be the limit\"",
-		 yDest:-6, nDest:-4},
-
-/*9*/	{question:"Do they enjoy to using the internet?",
-		 hint:"uses the internet recreationally - social media, videos/streaming, news, shopping",
-		 yDest:-3, nDest:6}
+// /*7*/	{question:"Do they still use the internet?",
+// 		 hint:"is actively using the internet currently, and will continue to do so in future",
+// 		 yDest:8, nDest:-2},
+//
+// /*8*/	{question:"Do they see how the internet has benefited them?",
+// 		 hint:"\"yes, and if I had more skill the sky would be the limit\"",
+// 		 yDest:-6, nDest:-4},
+//
+// /*9*/	{question:"Do they enjoy to using the internet?",
+// 		 hint:"uses the internet recreationally - social media, videos/streaming, news, shopping",
+// 		 yDest:-3, nDest:6}
 ];
 
 
@@ -147,7 +166,7 @@ function appendQuestion(n, question, hint){
 }
 
 function appendLevel(level, name){
-	
+
 	var plot = '';
 	var colour = '';
 
@@ -168,7 +187,7 @@ function appendLevel(level, name){
 
 
 
-				
+
 
 
 function unWrapPlaceholder(){
@@ -189,7 +208,7 @@ $( document ).ready(function() {
   //$('form').storeForm();
   //play back from local storage
   //$('.playback-container').getForm();
-  
+
   //toggle stuff by Ed Horsford @ GDS
   $('body').on('change', 'input', function(){
     var $this = $(this);
