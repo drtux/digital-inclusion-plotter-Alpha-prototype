@@ -16,6 +16,7 @@ var skills = [
 ]
 
 var questions = [
+<<<<<<< HEAD
 /*0*/	{question:"Ever use",
 		 hint:"",
 		 yDest:1, nDest:-1},
@@ -43,6 +44,66 @@ var questions = [
 /*6*/	{question:"pick 8/9",
 		 hint:"",
 		 yDest:-8, nDest:-9}
+=======
+/*0*/	{question:"Have they ever used the internet?",
+		//  hint:"",
+		 yDest:1, nDest:2},
+
+
+/*1*/	{question:"Do they still use the internet?",
+		//  hint:"",
+		 yDest:3, nDest:2},
+
+/*2*/	{question:"Do they want to be online?",
+		 hint:"There are barriers stopping them being online, for example it's too expensive, they lack of confidence or aren't physically able",
+		 yDest:-3, nDest:5},
+		 //If no to 0 and 2 = Never have, never will
+		 //If yes to 0, then no to 1 and 2 = Was online, but no longer
+		 //Yes = Willing but unable
+/*3*/	{question:"Do they like using the internet?",
+		//  hint:"They are positive about the benefits of being online and learning digital skills",
+		//Yes, mostly
+		//Not really, it's a chore
+		 yDest:4, nDest:-4},
+
+/*4*/	{question:"Do they need help completing tasks online?",
+		//  hint:"",
+		//Often = Learning the ropes
+		//Only with new or unfamiliar tasks = 5
+		//Rarely or never = 5
+
+		 yDest:-5, nDest:5},
+
+/*5*/	{question:"Can they:",
+			//<ol> list
+			//use email
+			//use search engines
+			//set up an account (eg an online bank account)
+			//buy things online
+		 hint:"",
+		 //Yes = if 5 = 'only with new tasks' then Basic digital
+		 //No, they'd need help
+		 yDest:6, nDest:-5},
+		 //Y =
+
+/*6*/	{question:"Do they have advanced digital skills?",
+		 hint:"They work in tech, can code or have specialist digital knowledge",
+		 yDest:-9, nDest:-8},
+		 //Y = Expert
+		 //N = Confident
+
+// /*7*/	{question:"Do they still use the internet?",
+// 		 hint:"is actively using the internet currently, and will continue to do so in future",
+// 		 yDest:8, nDest:-2},
+//
+// /*8*/	{question:"Do they see how the internet has benefited them?",
+// 		 hint:"\"yes, and if I had more skill the sky would be the limit\"",
+// 		 yDest:-6, nDest:-4},
+//
+// /*9*/	{question:"Do they enjoy to using the internet?",
+// 		 hint:"uses the internet recreationally - social media, videos/streaming, news, shopping",
+// 		 yDest:-3, nDest:6}
+>>>>>>> pr/3
 ];
 
 
@@ -173,7 +234,7 @@ function appendQuestion(n, question, hint){
 }
 
 function appendLevel(level, name){
-	
+
 	var plot = '';
 	var colour = '';
 
@@ -194,7 +255,7 @@ function appendLevel(level, name){
 
 
 
-				
+
 
 
 function unWrapPlaceholder(){
@@ -215,7 +276,7 @@ $( document ).ready(function() {
   //$('form').storeForm();
   //play back from local storage
   //$('.playback-container').getForm();
-  
+
   //toggle stuff by Ed Horsford @ GDS
   $('body').on('change', 'input', function(){
     var $this = $(this);
