@@ -1,4 +1,5 @@
-var skillStack = [];
+var helpState = -1;//Retain between questions
+var skillStack = [];//Calculate all/subset of skills 
 
 var skills = [
 /*0*/	{question:"Can they use a search engine?",
@@ -15,49 +16,38 @@ var skills = [
 ]
 
 var questions = [
-/*0*/	{question:"Can they access and use the internet?",
-		 hint:"has a device that can get online at either at home, library, school, mobile, or cafe",
-		 yDest:1, nDest:9},
+/*0*/	{question:"Ever use",
+		 hint:"",
+		 yDest:1, nDest:-1},
 
-/*1*/	{question:"Do they enjoy to using the internet?",
-		 hint:"uses the internet recreationally - social media, videos/streaming, news, shopping",
-		 yDest:2, nDest:6},
+/*1*/	{question:"Currently use",
+		 hint:"",
+		 yDest:2, nDest:3},
 
-/*2*/	{question:"Skill questions",
-		 hint:" ",
-		 yDest:3, nDest:5},
+/*2*/	{question:"Motivation",
+		 hint:"",
+		 yDest:4, nDest:-4},
 
-/*3*/	{question:"Are they happy to try something new online without help?",
-		 hint:"self-supported use of the internet, will search online for help if they get stuck, unlikely to get friends or family involved",
-		 yDest:4, nDest:-7},
+/*3*/	{question:"Motivation - want to",
+		 hint:"",
+		 yDest:-3, nDest:-2},
 
-/*4*/	{question:"Do they understand the processes that run online services?",
-		 hint:"has some web development skills, or technical knowledge",
-		 yDest:-9, nDest:-8},
+/*4*/	{question:"help",
+		 hint:"",
+		 yDest:0, nDest:0},
 
-/*5*/	{question:"Do they access the internet without help?",
-		 hint:"when they do use the internet for their 'regular' things they rarely need help",
-		 yDest:-6, nDest:-5},
+/*5*/	{question:"Skills questions above",
+		 hint:"N/A",
+		 yDest:0, nDest:0},
 
-/*6*/	{question:"Have they ever used the internet?",
-		 hint:"for any reasonable period, not just once, at any point in their lives",
-		 yDest:7, nDest:-1},
-
-/*7*/	{question:"Do they still use the internet?",
-		 hint:"is actively using the internet currently, and will continue to do so in future",
-		 yDest:8, nDest:-2},
-
-/*8*/	{question:"Do they see how the internet has benefited them?",
-		 hint:"\"yes, and if I had more skill the sky would be the limit\"",
-		 yDest:-6, nDest:-4},
-
-/*9*/	{question:"Do they enjoy to using the internet?",
-		 hint:"uses the internet recreationally - social media, videos/streaming, news, shopping",
-		 yDest:-3, nDest:6}
+/*6*/	{question:"pick 8/9",
+		 hint:"",
+		 yDest:-8, nDest:-9}
 ];
 
 
 function eval(name, value){
+
 
 	$(".question :input").each(function(index){//Delete any un-needed questions (to account for changing minds)
 		if(parseInt($(this).attr('name').charAt(0)) > parseInt(name.charAt(0))){
@@ -81,7 +71,25 @@ function eval(name, value){
 
 	switch (parseInt(name.charAt(0)))
 	{
-		case 2://Skills question
+		case 4://Getting others help question
+			switch(value)
+			{
+				case 1: //Regularly
+					n = -5;
+					break;
+				case 2: //New
+					helpState = 1;
+					n = 5;//skills question
+					break;
+				default: //Never
+					helpState = 0;
+					n = 5;//skills question
+					break;
+
+			}
+			break;
+
+		case 5://Skills question
 			skillStack.push({name:name, value:value});
 			if (skillStack.length == skills.length)
 			{//If all the skills Q's have been answered evaluate them
@@ -95,11 +103,18 @@ function eval(name, value){
 				}
 				if (yes == skillStack.length)
 				{//Yes (all)
-					n = questions[parseInt(name.charAt(0))].yDest;
+					if (helpState == 1)
+					{
+						n = -7;
+					}
+					else
+					{
+						n = 6;
+					}
 				}
 				else
 				{//No (sub-set)
-					n = questions[parseInt(name.charAt(0))].nDest;
+					n = -6;
 				}
 			}
 			break;
@@ -131,15 +146,26 @@ function eval(name, value){
 
 function appendQuestion(n, question, hint){
 	var html = " ";
-	if (n == 2)
-	{//Skill question
-		for (var i = 0; i < skills.length; i++){
-			html += "<fieldset class='form-group inline question'><legend class='form-label-bold' for='2:"+i+"'>"+skills[i].question+"</legend><p class='form-hint'>E.g. "+skills[i].hint+"</p><label class='block-label'><input id='2:"+i+"Y' name='2:"+i+"' type='radio' data-storage='-1'/>Yes</label><label class='block-label'><input id='2:"+i+"N' name='2:"+i+"' type='radio' data-storage='-2'/>No</label></fieldset>";
-		}
-	}
-	else
-	{//Normal questions
-		html = "<fieldset class='form-group inline question' name='set"+n+"'><legend class='form-label-bold' for='"+n+"'>"+question+"</legend><p class='form-hint'> E.g. "+hint+"</p><label class='block-label'><input id='"+n+"Y' name='"+n+"' type='radio' data-storage='1'/>Yes</label><label class='block-label'><input id='"+n+"N' name='"+n+"' type='radio' value='0'/>No</label></fieldset>";
+	switch(n)
+	{
+		case 4://Help question
+			html = "<fieldset class='form-group inline question' name='set"+n+"'><legend class='form-label-bold' for='"+n+"'>"+question+"</legend><p class='form-hint'>For example, "+hint+"</p><label class='block-label'><input id='"+n+"R' name='"+n+"' type='radio' data-storage='1'/>Reguarly</label><label class='block-label'><input id='"+n+"T' name='"+n+"' type='radio' data-storage='2'/>Only new tasks</label><label class='block-label'><input id='"+n+"N' name='"+n+"' type='radio' data-storage='3'/>Rarely/Never</label></fieldset>"
+			break;
+
+		case 5://Skill question
+			for (var i = 0; i < skills.length; i++){
+				html += "<fieldset class='form-group inline question' name='set"+n+"'><legend class='form-label-bold' for='5:"+i+"'>"+skills[i].question+"</legend><p class='form-hint'>For example, "+skills[i].hint+"</p><label class='block-label'><input id='5:"+i+"Y' name='5:"+i+"' type='radio' data-storage='-1'/>Yes</label><label class='block-label'><input id='5:"+i+"N' name='5:"+i+"' type='radio' data-storage='-2'/>No</label></fieldset>";
+			}
+			break;
+
+		case 6://Are they 8/9?
+			html = "<fieldset class='form-group inline question' name='set"+n+"'><legend class='form-label-bold' for='"+n+"'>"+question+"</legend><p class='form-hint'>For example, "+hint+"</p><label class='block-label'><input id='"+n+"Y' name='"+n+"' type='radio' data-storage='-1'/>8: Confident</label><label class='block-label'><input id='"+n+"N' name='"+n+"' type='radio' data-storage='-1'/>9: Expert</label></fieldset>"
+			break;
+
+		default:
+		//Normal questions
+			html = "<fieldset class='form-group inline question' name='set"+n+"'><legend class='form-label-bold' for='"+n+"'>"+question+"</legend><p class='form-hint'> For example, "+hint+"</p><label class='block-label'><input id='"+n+"Y' name='"+n+"' type='radio' data-storage='1'/>Yes</label><label class='block-label'><input id='"+n+"N' name='"+n+"' type='radio' value='0'/>No</label></fieldset>";
+		break;
 	}
 	$('.form').append(html)
 	var latestElement = document.getElementsByName('set'+n);

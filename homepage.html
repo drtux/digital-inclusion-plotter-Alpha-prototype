@@ -7,7 +7,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Digital Inclusion Plotter</title>
-	<meta name="author" content="Tom Harrop" />
+	<meta name="author" content="Ben Walker"/>
 	<meta name="Copyright" content="Open Government Licence v3.0, except where otherwise stated" />
 	<!--[if gt IE 8]><!--><link href="govuk-assets/stylesheets/govuk-template.css?0.12.0" media="screen" rel="stylesheet" type="text/css" /><!--<![endif]-->
 	<!--[if IE 6]><link href="govuk-assets/stylesheets/govuk-template-ie6.css?0.12.0" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
@@ -19,7 +19,7 @@
 	[REMOVED FOR GDS]-->
 
 	<script type="text/javascript" src="scripts/jquery.min.js"></script>
-	<!--<script type="text/javascript" src="scripts/form.storage.js"></script>-->
+	<script type="text/javascript" src="scripts/form.storage.js"></script>
 	<script type="text/javascript" src="scripts/application.js"></script>
 	<script type="text/javascript" src="scripts/details.polyfill.js"></script>
 
@@ -31,22 +31,25 @@
 	<main id="content" role="main">
 		<div data-includefile="banner-alpha"></div>
 
-<!-- DELETE FROM HERE -->
+		<a class="button">Quick plot</a><a class="button">Sync participants</a>
+		<a>Create project</a>
+		
+		<hr>
+		<h1 class="heading-large">Project name #1</h1> <a>Edit</a>
+		<p>Description of the project</p>
+		<div>Project calender</div>
+		<a class="button">Add session</a>
+		<a>Generate evidence</a>
 
-		<h1 class="heading-xlarge">Answer these questions to decide on the category</h1>
-
-		<form name="after-form" class="form">
-			<fieldset class="form-group inline question">
-				<legend class="form-label-bold" for="0">Can they access and use the internet?</legend>
-				<p class="form-hint">For example, has a device that can get online at either at home, library, school, mobile, or cafe</p>
-				<label class="block-label"><input id="0Y" name="0" type="radio" data-storage="1"/>Yes</label>
-				<label class="block-label"><input id="0N" name="0" type="radio" data-storage="0"/>No</label>
-			</fieldset>
-		</form>
-
-<!-- STOP DELETING! -->
+		<hr>
+		<h1 class="heading-large">Project name #2</h1> <a>Edit</a>
+		<p>Description of the project</p>
+		<div>Project calender</div>
+		<a>Add session</a>
+		<a>Generate evidence</a>
 
 	</main>
+
 	<footer data-includefile="footer"></footer>
 </body>
 </html>
