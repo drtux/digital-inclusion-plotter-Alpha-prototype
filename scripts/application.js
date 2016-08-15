@@ -3,39 +3,43 @@ var helpState = -1;//Retain between questions
 var questions = [
 /*0*/	{question:"Have they ever used the internet?",
 		//  hint:"",
-		 yDest:1, nDest:-1},
+		 yDest:2, nDest:1},
 
-/*1*/	{question:"Do they still use the internet?",
+/*1*/	{question:"Do they want to be online?",
+		 hint:"There are barriers stopping them being online, for example it's too expensive, they lack of confidence or aren't physically able",
+		 yDest:-3, nDest:-1},
+
+/*2*/	{question:"Do they still use the internet?",
 		//  hint:"",
-		 yDest:3, nDest:2},
+		 yDest:4, nDest:3},
 
-/*2*/	{question:"Do they want to be online?",
+/*3*/	{question:"Do they want to be online?",
 		 hint:"There are barriers stopping them being online, for example it's too expensive, they lack of confidence or aren't physically able",
 		 yDest:-3, nDest:-2},
 
 		 //If no to 0 and 2 = Never have, never will
 		 //If yes to 0, then no to 1 and 2 = Was online, but no longer
 		 //Yes = Willing but unable
-/*3*/	{question:"Do they like using the internet?",
+/*4*/	{question:"Do they like using the internet?",
 		//  hint:"They are positive about the benefits of being online and learning digital skills",
 		//Yes, mostly
 		//Not really, it's a chore
-		 yDest:4, nDest:-4},
+		 yDest:5, nDest:-4},
 
-/*4*/	{question:"Do they need help completing tasks online?",
+/*5*/	{question:"Do they need help completing tasks online?",
 		//  hint:"",
 		//Often = Learning the ropes
 		//Only with new or unfamiliar tasks = 5
 		//Rarely or never = 5
 		 yDest:0, nDest:0},
 
-/*5*/	{question:"Can they:<ul class='list list-bullet'><li>use email</li><li>use search engines</li><li>set up an account (for example, an online bank account)</li><li>buy things online</li></ul>",
+/*6*/	{question:"Can they:<ul class='list list-bullet'><li>use email</li><li>use search engines</li><li>set up an account (for example, an online bank account)</li><li>buy things online</li></ul>",
 		 hint:"",
 		 //Yes = if 5 = 'only with new tasks' then Basic digital
 		 //No, they'd need help
 		 yDest:0, nDest:0},
 
-/*6*/	{question:"Do they have advanced digital skills?",
+/*7*/	{question:"Do they have advanced digital skills?",
 		 hint:"They work in tech, can code or have specialist digital knowledge",
 		 yDest:-9, nDest:-8}
 		 //Y = Expert
