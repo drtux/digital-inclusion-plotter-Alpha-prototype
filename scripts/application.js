@@ -64,7 +64,7 @@ function eval(name, value){
 
 	switch (parseInt(name.charAt(0)))
 	{
-		case 4://Getting others help question
+		case 5://Getting others help question
 			switch(value)
 			{
 				case 1: //Regularly
@@ -82,7 +82,7 @@ function eval(name, value){
 			}
 			break;
 
-		case 5://Skills question
+		case 6://Skills question
 			if (value == 1 && helpState == 1)
 			{
 				n = -7;
@@ -126,7 +126,7 @@ function appendQuestion(n, question, hint){
 	var html = " ";
 	switch(n)
 	{
-		case 4://Help question
+		case 5://Help question
 			html = "<fieldset class='form-group inline question' name='set"+n+"'><legend class='form-label-bold' for='"+n+"'>"+question+"</legend><p class='form-hint'>For example, "+hint+"</p><label class='block-label'><input id='"+n+"R' name='"+n+"' type='radio' data-storage='1'/>Reguarly</label><label class='block-label'><input id='"+n+"T' name='"+n+"' type='radio' data-storage='2'/>Only new tasks</label><label class='block-label'><input id='"+n+"N' name='"+n+"' type='radio' data-storage='3'/>Rarely/Never</label></fieldset>"
 			break;
 
