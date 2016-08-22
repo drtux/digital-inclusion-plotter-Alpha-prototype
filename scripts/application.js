@@ -72,11 +72,11 @@ function eval(name, value){
 					break;
 				case 2: //New
 					helpState = 1;
-					n = 5;//skills question
+					n = 6;//skills question
 					break;
 				default: //Never
 					helpState = 0;
-					n = 5;//skills question
+					n = 6;//skills question
 					break;
 
 			}
@@ -89,7 +89,7 @@ function eval(name, value){
 			}
 			else if (value == 1 && helpState == 0)
 			{
-				n = 6;
+				n = 7;
 			}
 			else
 			{//No (sub-set)
