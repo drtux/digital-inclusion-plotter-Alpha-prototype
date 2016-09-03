@@ -1,0 +1,108 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="ie ie6 ie-lt10 ie-lt9 ie-lt8 ie-lt7 no-js" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7 ie-lt10 ie-lt9 ie-lt8 no-js" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8 ie-lt10 ie-lt9 no-js" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9 ie-lt10 no-js" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<title>Digital Inclusion Plotter</title>
+	<meta name="author" content="Tom Harrop" />
+	<meta name="Copyright" content="Open Government Licence v3.0, except where otherwise stated" />
+	<!--[if gt IE 8]><!--><link href="govuk-assets/stylesheets/govuk-template.css?0.12.0" media="screen" rel="stylesheet" type="text/css" /><!--<![endif]-->
+	<!--[if IE 6]><link href="govuk-assets/stylesheets/govuk-template-ie6.css?0.12.0" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+	<!--[if IE 7]><link href="govuk-assets/stylesheets/govuk-template-ie7.css?0.12.0" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+	<!--[if IE 8]><link href="govuk-assets/stylesheets/govuk-template-ie8.css?0.12.0" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+	<link href="govuk-assets/stylesheets/govuk-template-print.css?0.12.0" media="print" rel="stylesheet" type="text/css" />
+	<link href="govuk-assets/application.css" media="all" rel="stylesheet" type="text/css" />
+	<!--<link href="govuk-assets/stylesheets/fonts.css?0.12.0" media="all" rel="stylesheet" type="text/css" />
+	[REMOVED FOR GDS]-->
+
+	<script type="text/javascript" src="scripts/jquery.min.js"></script>
+	<!--<script type="text/javascript" src="scripts/form.storage.js"></script>-->
+	<script type="text/javascript" src="scripts/application.js"></script>
+	<script type="text/javascript" src="scripts/details.polyfill.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="stylesheets/styles.css" />
+</head>
+<body>
+
+	<header data-includefile="header"></header>
+	<main id="content" role="main">
+		<div data-includefile="banner-alpha"></div>
+
+<!-- DELETE FROM HERE -->
+
+		<h1 class="heading-xlarge">Access needs monitoring</h1>
+		<p>The Home Office would like to improve the quality of services offered to customers. We would like to identify if customers have specific disabilities or access needs so we can improve services. Please help us out by telling us about yourself. All information is kept anonymous.</p>
+
+		<form name="access-form" class="form">
+
+			<fieldset class="form-group inline question" name="accessNeed">
+				<legend class="form-label-bold" for="accessNeed">Do you have a disability or access need?</legend>
+				<label class="block-label"><input id="accessNeedY" name="accessNeed" type="radio">Yes</label>
+				<label class="block-label"><input id="accessNeedN" name="accessNeed" type="radio">No</label>
+			</fieldset>
+
+			<div class="visuallyhidden" id="accessNeed-reveal">
+				<h2 class="heading-large">Is it one of the following:</h2>
+			
+				<fieldset class="form-group inline question" name="hearing">
+					<legend class="form-label-bold" for="hearing">Hearing</legend>
+					<p class="form-hint">For example, </p>
+					<label class="block-label"><input id="" name="hearing" type="checkbox" data-storage='d'/>Deaf (uses British Sign Language as first or preferred language)</label>
+					<label class="block-label"><input id="" name="hearing" type="checkbox" data-storage='h'/>Hearing impairment/hearing loss</label>
+				</fieldset>
+
+				<fieldset class="form-group inline question" name="physicalMobility">
+					<legend class="form-label-bold" for="physicalMobility">Physical & Mobility</legend>
+					<p class="form-hint">For example, </p>
+					<label class="block-label"><input id="" name="physicalMobility" type="checkbox" data-storage='p'/>Physical disability</label>
+					<label class="block-label"><input id="" name="physicalMobility" type="checkbox" data-storage='w'/>Wheelchair User/mobility difficulties</label>
+					<label class="block-label"><input id="" name="physicalMobility" type="checkbox" data-storage='o'/>Other (please specify)</label>
+				</fieldset>
+
+				<fieldset class="form-group inline question" name="thinkingFeeling">
+					<legend class="form-label-bold" for="thinkingFeeling">Thinking and feeling</legend>
+					<p class="form-hint">For example, </p>
+					<label class="block-label"><input id="" name="thinkingFeeling" type="checkbox" data-storage='a'/>ADHD</label>
+					<label class="block-label"><input id="" name="thinkingFeeling" type="checkbox" data-storage='s'/>Autistic Spectrum/Aspergers</label>
+					<label class="block-label"><input id="" name="thinkingFeeling" type="checkbox" data-storage='d'/>Dyslexia</label>
+					<label class="block-label"><input id="" name="thinkingFeeling" type="checkbox" data-storage='l'/>Learning difficulties</label>
+					<label class="block-label"><input id="" name="thinkingFeeling" type="checkbox" data-storage='m'/>Mental Health condition</label>
+					<label class="block-label"><input id="" name="thinkingFeeling" type="checkbox" data-storage='o'/>Other (please specify)</label>
+				</fieldset>
+
+				<fieldset class="form-group inline question" name="vision">
+					<legend class="form-label-bold" for="vision">Vision</legend>
+					<p class="form-hint">For example, </p>
+					<label class="block-label"><input id="" name="vision" type="checkbox" data-storage='b'/>Blind</label>
+					<label class="block-label"><input id="" name="vision" type="checkbox" data-storage='p'/>Partially sighted (vision impairment not corrected by glasses)</label>
+				</fieldset>
+
+				<fieldset class="form-group inline question" name="other">
+					<legend class="form-label-bold" for="other">Other</legend>
+					<p class="form-hint">For example, </p>
+					<label class="block-label"><input id="" name="other" type="checkbox" data-storage='1'/>Hidden disability such as epilepsy or diabetes (please specify)</label>
+					<label class="block-label"><input id="" name="other" type="checkbox" data-storage='1'/>Multiple disabilities (please specify)</label>
+					<label class="block-label"><input id="" name="other" type="checkbox" data-storage='1'/>Disability or condition not listed above (please specify)</label>
+				</fieldset>
+
+				<fieldset class="form-group inline question" name="freetext">
+					<legend class="form-label-bold" for="freetext">Is there anything else you’d like to tell us about your disability or condition that affects:</legend>
+					<p class="form-hint">For example, how you use a computer, tablet or mobile phone</p>
+					<textarea name="freetext" cols="40" rows="5"></textarea>
+				</fieldset>
+
+			</div>
+		</form>
+
+		<a class='button' href='routing.html'>Map another participant</a>
+		<a href='index.html'>Finish</a>
+
+<!-- STOP DELETING! -->
+
+	</main>
+	<footer data-includefile="footer"></footer>
+</body>
+</html>

@@ -155,8 +155,10 @@ function appendLevel(level, name){
 		case -8: plot += '8:</br>Confident</p><p>Confident users make use of digital tools at work and in their everyday lives.'; colour = '#B0CC5B'; break;
 		case -9: plot += '9:</br>Expert</p><p>Expert internet users have advanced digital skills.'; colour = '#9CC55A'; break;
 	}
-	var html = "<div class='level' name='"+name+"'><p class='heading-large panel-indent' style='background-color: "+colour+";'>They are a category " + plot + "</p> <a class='button' href='routing.html'>Continue</a></div>";
+	var html = "<div class='level' name='"+name+"'><p class='heading-large panel-indent' style='background-color: "+colour+";'>They are a category " + plot + "</p> <a class='button' href='access.html'>Continue</a></div>";
 	$('.form').append(html);
+	var latestElement = document.getElementsByName(name);
+	latestElement[0].scrollIntoView();
 }
 
 
@@ -176,8 +178,10 @@ $( document ).ready(function() {
     var file = $(this).attr("data-includefile");
     $(this).load("includes/"+$(this).attr("data-includefile")+".html", unWrapPlaceholder)
   });
-
-  appendQuestion(0, questions[0].question, questions[0].hint);//Add first question
+  var form = $(".form").attr("name");
+  if(form ==="category-form"){
+  	appendQuestion(0, questions[0].question, questions[0].hint);//Add first question
+  }
 
   //write to local storage
   //$('form').storeForm();
@@ -201,7 +205,18 @@ $( document ).ready(function() {
         $(this).toggle($this.val() == $(this).attr('data-toggle-value'));
       });
     }*/
-    eval($this.attr('name'),parseInt($this.attr('data-storage')));
+    if(form ==="category-form"){
+    	eval($this.attr('name'),parseInt($this.attr('data-storage')));
+    }
+    else
+    {
+    	if($this.attr('id')==="accessNeedY"){
+    		$('#accessNeed-reveal').removeClass('visuallyhidden');
+    	}
+    	else if($this.attr('id')==="accessNeedN"){
+    		$('#accessNeed-reveal').addClass('visuallyhidden');
+    	}
+    }
   });
 
   $('[data-button-page]').change(function(){
