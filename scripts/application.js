@@ -212,6 +212,8 @@ $( document ).ready(function() {
     {
     	if($this.attr('id')==="accessNeedY"){
     		$('#accessNeed-reveal').removeClass('visuallyhidden');
+    		var latestElement = document.getElementsByName('accessNeed-reveal');
+			latestElement[0].scrollIntoView();
     	}
     	else if($this.attr('id')==="accessNeedN"){
     		$('#accessNeed-reveal').addClass('visuallyhidden');
