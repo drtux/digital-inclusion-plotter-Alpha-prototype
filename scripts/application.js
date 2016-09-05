@@ -1,4 +1,8 @@
+
 var helpState = -1;//Retain between questions
+
+var modal = "";
+var span = "";
 
 var questions = [
 /*0*/	{question:"Have they ever used the internet?",
@@ -155,14 +159,17 @@ function appendLevel(level, name){
 		case -8: plot += '8:</br>Confident</p><p>Confident users make use of digital tools at work and in their everyday lives.'; colour = '#B0CC5B'; break;
 		case -9: plot += '9:</br>Expert</p><p>Expert internet users have advanced digital skills.'; colour = '#9CC55A'; break;
 	}
-	var html = "<div class='level' name='"+name+"'><p class='heading-large panel-indent' style='background-color: "+colour+";'>They are a category " + plot + "</p> <a class='button' href='access.html'>Continue</a></div>";
+	var html = "<div class='level' name='"+name+"'><p class='heading-large panel-indent' style='background-color: "+colour+";'>They are a category " + plot + "</p> <p><a id='myBtn' href='routing.jpg'>Methodology explaination &#128270;</a></p> <a class='button' href='access.html'>Continue</a></div>";
 	$('.form').append(html);
 	var latestElement = document.getElementsByName(name);
 	latestElement[0].scrollIntoView();
+	btn = document.getElementById("myBtn");
+	// When the user clicks on the button, open the modal 
+	btn.onclick = function(e) {
+		e.preventDefault();
+    	modal.style.display = "block";
+	}
 }
-
-
-
 
 
 function unWrapPlaceholder(){
@@ -182,6 +189,25 @@ $( document ).ready(function() {
   if(form ==="category-form"){
   	appendQuestion(0, questions[0].question, questions[0].hint);//Add first question
   }
+
+
+// Get the modal
+modal = document.getElementById('myModal');
+
+// Get the <span> element that closes the modal
+span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
 
   //write to local storage
   //$('form').storeForm();
