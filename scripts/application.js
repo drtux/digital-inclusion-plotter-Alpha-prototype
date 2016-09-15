@@ -188,10 +188,8 @@ $( document ).ready(function() {
   var form = $(".form").attr("name");
   if(form ==="category-form"){
   	appendQuestion(0, questions[0].question, questions[0].hint);//Add first question
-  }
 
-
-// Get the modal
+  	// Get the modal
 modal = document.getElementById('myModal');
 
 // Get the <span> element that closes the modal
@@ -208,6 +206,10 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+  }
+
+
+
 
   //write to local storage
   //$('form').storeForm();
