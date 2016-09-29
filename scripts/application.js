@@ -159,7 +159,7 @@ function appendLevel(level, name){
 		case -8: plot += '8:</br>Confident</p><p>Confident users make use of digital tools at work and in their everyday lives.'; colour = '#B0CC5B'; break;
 		case -9: plot += '9:</br>Expert</p><p>Expert internet users have advanced digital skills.'; colour = '#9CC55A'; break;
 	}
-	var html = "<div class='level' name='"+name+"'><p class='heading-large panel-indent' style='background-color: "+colour+";'>They are a category " + plot + "</p> <p><a id='myBtn' href='routing.jpg'>Methodology explaination &#128270;</a></p> <a class='button' href='access.html'>Continue</a></div>";
+	var html = "<div class='level' name='"+name+"'><p class='heading-large panel-indent' style='background-color: "+colour+";'>They are a category " + plot + "</p> <p><a id='myBtn' href='routing.jpg'>How did I get here?</a></p> <a class='button' href='routing.html'>Map another participant</a><a href='index.html'>Finish</a></div>";
 	$('.form').append(html);
 	var latestElement = document.getElementsByName(name);
 	latestElement[0].scrollIntoView();
@@ -174,7 +174,7 @@ function appendLevel(level, name){
 
 function unWrapPlaceholder(){
   $(this).contents().unwrap();
-  $("#proposition-name").html("Digital Inclusion Plotter");
+  $("#proposition-name").html("Map your participants");
 }
 
 
