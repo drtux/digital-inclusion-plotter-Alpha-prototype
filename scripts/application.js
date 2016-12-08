@@ -37,14 +37,14 @@ var questions = [
 		//Rarely or never = 5
 		 yDest:0, nDest:0},
 
-/*6*/	{question:"Can they:<ul class='list list-bullet'><li>use email</li><li>use search engines</li><li>set up an account (for example, an online bank account)</li><li>buy things online</li></ul>",
+/*6*/	{question:"Can they:<ul class='list list-bullet'><li>use email or instant messaging</li><li>use search engines</li><li>sign-up for and use an online service (for example, renewing your driving licence, joining a charity, online banking)</li><li>buy things online</li></ul>",
 		 hint:"",
 		 //Yes = if 5 = 'only with new tasks' then Basic digital
 		 //No, they'd need help
 		 yDest:0, nDest:0},
 
 /*7*/	{question:"Do they have advanced digital skills?",
-		 hint:"They work in tech, can code or have specialist digital knowledge",
+		 hint:"They work in tech, can code or have specialist digital knowledge", //Use keyboard shortcuts, for things like tabbing, copying and pasting, switching between apps, etc.
 		 yDest:-9, nDest:-8}
 		 //Y = Expert
 		 //N = Confident
