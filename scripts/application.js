@@ -169,14 +169,15 @@ function appendLevel(level, name){
 		case -8: plot += '8:</br>Confident</p><p>Confident users make use of digital tools at work and in their everyday lives.'; colour = '#B0CC5B'; break;
 		case -9: plot += '9:</br>Expert</p><p>Expert internet users have advanced digital skills.'; colour = '#9CC55A'; break;
 	}
-	var html = "<div class='level' name='"+name+"'><p class='heading-large panel-indent' style='background-color: "+colour+";'>They are a category " + plot + "</p> <p><a id='myBtn' href='routing.jpg'>How did I get here?</a></p> <a class='button' href='access.html' style='padding: 0.60em 0.67em 0.45em 0.67em;font-weight: 700;font-size: 24px;line-height: 0.66667;'>Map another participant</a><a href='index.html'>Finish</a></div>";
+	var html = "<div class='level' name='"+name+"'><p class='heading-large panel-indent' style='background-color: "+colour+";'>They are a category " + plot + "</p> <p><a id='methodModal' href='routing.jpg'>How did I get here?</a></p> <a class='button' href='access.html' style='padding: 0.60em 0.67em 0.45em 0.67em;font-weight: 700;font-size: 24px;line-height: 0.66667;'>Map another participant</a><a href='index.html'>Finish</a></div>";
 	$('.form').append(html);
 	var latestElement = document.getElementsByName(name);
 	latestElement[0].scrollIntoView();
-	btn = document.getElementById("myBtn");
+	btn = document.getElementById("methodModal");
 	// When the user clicks on the button, open the modal 
 	btn.onclick = function(e) {
 		e.preventDefault();
+		modal.contents.append("<span class='close'>x</span><p>Placeholder text that will explain routing</p><img src='routing.jpg'");
     	modal.style.display = "block";
 	}
 }
