@@ -159,25 +159,29 @@ function appendLevel(level, name){
 	var colour = '';
 
 	switch(level){
-		case -1: plot += '1:</br>Never have, never will</p><p>They may feel they have ‘missed the boat’ and that learning how to use the internet doesn\'t fit into their lives.'; colour = '#DA7357'; break;
-		case -2: plot += '2:</br>Was online but no longer</p><p>They might have lost trust in the internet. They might be afraid of fraud or seeing inappropriate things online. They might have lost internet access because of cost or physical or mental capability.'; colour = '#EA8C5C'; break;
-		case -3: plot += '3:</br>Willing and unable</p><p>People in this category predominantly have a positive perception of being online but have problems with low skills and they struggle to learn.'; colour = '#EC9E5A'; break;
-		case -4: plot += '4:</br>Reluctantly online</p><p>They understand the general benefits of being online, they have yet to experience them personally.'; colour = '#F4C15B'; break;
-		case -5: plot += '5:</br>Learning the ropes</p><p>These users are predominantly very positive about the benefits of the internet and have willingly started to engage with digital technologies.'; colour = '#F9D45E'; break;
-		case -6: plot += '6:</br>Task specific</p><p>Their tasks may include online banking or updating social media. These tasks are often limited and specific.'; colour = '#EAE05F'; break;
-		case -7: plot += '7:</br>Basic digital skills</p><p>These people have enough skills to be able to navigate online independently and perform all tasks at a basic level.'; colour = '#D6DA5D'; break;
-		case -8: plot += '8:</br>Confident</p><p>Confident users make use of digital tools at work and in their everyday lives.'; colour = '#B0CC5B'; break;
-		case -9: plot += '9:</br>Expert</p><p>Expert internet users have advanced digital skills.'; colour = '#9CC55A'; break;
+		case -1: plot += '1:</br>Never have, never will</p><p class="del">They may feel they have ‘missed the boat’ and that learning how to use the internet doesn\'t fit into their lives.'; colour = '#DA7357'; break;
+		case -2: plot += '2:</br>Was online but no longer</p><p class="del">They might have lost trust in the internet. They might be afraid of fraud or seeing inappropriate things online. They might have lost internet access because of cost or physical or mental capability.'; colour = '#EA8C5C'; break;
+		case -3: plot += '3:</br>Willing and unable</p><p class="del">People in this category predominantly have a positive perception of being online but have problems with low skills and they struggle to learn.'; colour = '#EC9E5A'; break;
+		case -4: plot += '4:</br>Reluctantly online</p><p class="del">They understand the general benefits of being online, they have yet to experience them personally.'; colour = '#F4C15B'; break;
+		case -5: plot += '5:</br>Learning the ropes</p><p class="del">These users are predominantly very positive about the benefits of the internet and have willingly started to engage with digital technologies.'; colour = '#F9D45E'; break;
+		case -6: plot += '6:</br>Task specific</p><p class="del">Their tasks may include online banking or updating social media. These tasks are often limited and specific.'; colour = '#EAE05F'; break;
+		case -7: plot += '7:</br>Basic digital skills</p><p class="del">These people have enough skills to be able to navigate online independently and perform all tasks at a basic level.'; colour = '#D6DA5D'; break;
+		case -8: plot += '8:</br>Confident</p><p class="del">Confident users make use of digital tools at work and in their everyday lives.'; colour = '#B0CC5B'; break;
+		case -9: plot += '9:</br>Expert</p><p class="del">Expert internet users have advanced digital skills.'; colour = '#9CC55A'; break;
 	}
 	var html = "<div class='level' name='"+name+"'><p class='heading-large panel-indent' style='background-color: "+colour+";'>They are a category " + plot + "</p> <p><a id='methodModal' href='routing.jpg'>How did I get here?</a></p> <a class='button' href='access.html' style='padding: 0.60em 0.67em 0.45em 0.67em;font-weight: 700;font-size: 24px;line-height: 0.66667;'>Map another participant</a><a href='index.html'>Finish</a></div>";
 	$('.form').append(html);
 	var latestElement = document.getElementsByName(name);
 	latestElement[0].scrollIntoView();
+
+	$('.modal-content').append("<p class='heading-large panel-indent del' style='background-color: "+colour+";'>They are a category " + plot + "</p>");
+	modal.style.display = "block";
+
 	btn = document.getElementById("methodModal");
 	// When the user clicks on the button, open the modal 
 	btn.onclick = function(e) {
 		e.preventDefault();
-		modal.contents.append("<span class='close'>x</span><p>Placeholder text that will explain routing</p><img src='routing.jpg'");
+		$('.modal-content').append("<p  class='del'>Placeholder text that will explain routing</p><img  class='del' src='routing.jpg'>");
     	modal.style.display = "block";
 	}
 }
@@ -208,13 +212,16 @@ span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-    modal.style.display = "none";
+    
+    $('.del').remove();
+modal.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
+        $('.del').remove();
     }
 }
   }
