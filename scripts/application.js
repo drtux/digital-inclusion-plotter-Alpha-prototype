@@ -131,11 +131,11 @@ function appendQuestion(n, question, hint){
 	switch(n)
 	{
 		case 5://Help question
-			html = "<fieldset class='form-group inline question' name='set"+n+"'><legend class='form-label-bold' for='"+n+"'>"+question+genHelp(hint)+"<label class='block-label'><input id='"+n+"R' name='"+n+"' type='radio' data-storage='1'/>Reguarly</label><label class='block-label'><input id='"+n+"T' name='"+n+"' type='radio' data-storage='2'/>Only new tasks</label><label class='block-label'><input id='"+n+"N' name='"+n+"' type='radio' data-storage='3'/>Rarely/Never</label></fieldset>"
+			html = "<fieldset class='form-group inline question' name='set"+n+"'><legend class='form-label-bold' for='"+n+"'>"+question+"</legend>"+genHelp(hint)+"<label class='block-label'><input id='"+n+"R' name='"+n+"' type='radio' data-storage='1'/>Reguarly</label><label class='block-label'><input id='"+n+"T' name='"+n+"' type='radio' data-storage='2'/>Only new tasks</label><label class='block-label'><input id='"+n+"N' name='"+n+"' type='radio' data-storage='3'/>Rarely/Never</label></fieldset>"
 			break;
 
 		default://Normal questions
-			html = "<fieldset class='form-group inline question' name='set"+n+"'><legend class='form-label-bold' for='"+n+"'>"+question+genHelp(hint)+"</p><label class='block-label'><input id='"+n+"Y' name='"+n+"' type='radio' data-storage='1'/>Yes</label><label class='block-label'><input id='"+n+"N' name='"+n+"' type='radio' value='0'/>No</label></fieldset>";
+			html = "<fieldset class='form-group inline question' name='set"+n+"'><legend class='form-label-bold' for='"+n+"'>"+question+"</legend>"+genHelp(hint)+"<label class='block-label'><input id='"+n+"Y' name='"+n+"' type='radio' data-storage='1'/>Yes</label><label class='block-label'><input id='"+n+"N' name='"+n+"' type='radio' value='0'/>No</label></fieldset>";
 			break;
 	}
 	$('.form').append(html);
@@ -148,7 +148,7 @@ function genHelp(h){
 	{
 		return "";
 	}else{
-		var help = "</legend><p class='form-hint'>For example, "+h+"</p>";
+		var help = "<p class='form-hint'>For example, "+h+"</p>";
 		return help;
 	}
 }
@@ -169,7 +169,7 @@ function appendLevel(level, name){
 		case -8: plot += '8:</br>Confident</p><p>Confident users make use of digital tools at work and in their everyday lives.'; colour = '#B0CC5B'; break;
 		case -9: plot += '9:</br>Expert</p><p>Expert internet users have advanced digital skills.'; colour = '#9CC55A'; break;
 	}
-	var html = "<div class='level' name='"+name+"'><p class='heading-large panel-indent' style='background-color: "+colour+";'>They are a category " + plot + "</p> <p><a id='myBtn' href='routing.jpg'>How did I get here?</a></p> <a class='button' href='routing.html'>Map another participant</a><a href='index.html'>Finish</a></div>";
+	var html = "<div class='level' name='"+name+"'><p class='heading-large panel-indent' style='background-color: "+colour+";'>They are a category " + plot + "</p> <p><a id='myBtn' href='routing.jpg'>How did I get here?</a></p> <a class='button' href='access.html' style='padding: 0.60em 0.67em 0.45em 0.67em;font-weight: 700;font-size: 24px;line-height: 0.66667;'>Map another participant</a><a href='index.html'>Finish</a></div>";
 	$('.form').append(html);
 	var latestElement = document.getElementsByName(name);
 	latestElement[0].scrollIntoView();
