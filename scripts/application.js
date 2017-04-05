@@ -144,7 +144,7 @@ function appendQuestion(n, question, hint){
 }
 
 genHelp(h){
-	if (h===null)
+	if (h===undefined)
 	{
 		return "";
 	}else{
