@@ -143,7 +143,7 @@ function appendQuestion(n, question, hint){
 	latestElement[0].scrollIntoView();
 }
 
-genHelp(h){
+function genHelp(h){
 	if (h===undefined)
 	{
 		return "";
