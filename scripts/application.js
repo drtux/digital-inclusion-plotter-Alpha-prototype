@@ -10,7 +10,7 @@ var questions = [
 		 yDest:2, nDest:1},
 
 /*1*/	{question:"Do they want to be online?",
-		 hint:"There are barriers stopping them being online, for example it's too expensive, they lack of confidence or aren't physically able",
+		 hint:"There might be barriers stopping them being online, for example it might be too expensive, they lack of confidence or aren't physically able",
 		 yDest:-3, nDest:-1},
 
 /*2*/	{question:"Do they still use the internet?",
@@ -25,7 +25,7 @@ var questions = [
 		 //If yes to 0, then no to 1 and 2 = Was online, but no longer
 		 //Yes = Willing but unable
 /*4*/	{question:"Do they like using the internet?",
-		//  hint:"They are positive about the benefits of being online and learning digital skills",
+		 hint:"For example would they chose to use the internet if there was any other alternative",
 		//Yes, mostly
 		//Not really, it's a chore
 		 yDest:5, nDest:-4},
@@ -37,14 +37,14 @@ var questions = [
 		//Rarely or never = 5
 		 yDest:0, nDest:0},
 
-/*6*/	{question:"Can they:<ul class='list list-bullet'><li>use email or instant messaging</li><li>use search engines</li><li>sign-up for and use an online service (for example, renewing your driving licence, joining a charity, online banking)</li><li>buy things online</li></ul>",
-		 hint:"",
+/*6*/	{question:"* Are they able to do all of the following online:<ul class='list list-bullet'><li>use email or instant messaging</li><li>use search engines</li><li>sign-up for and use an online service (for example, renewing your driving licence, joining a charity, online banking)</li><li>buy things online</li></ul>",
+		 // hint:"",
 		 //Yes = if 5 = 'only with new tasks' then Basic digital
 		 //No, they'd need help
 		 yDest:0, nDest:0},
 
 /*7*/	{question:"Do they have advanced digital skills?",
-		 hint:"They work in tech, can code or have specialist digital knowledge", //Use keyboard shortcuts, for things like tabbing, copying and pasting, switching between apps, etc.
+		 hint:"They work in tech, can code, or have specialist digital knowledge", //Use keyboard shortcuts, for things like tabbing, copying and pasting, switching between apps, etc.
 		 yDest:-9, nDest:-8}
 		 //Y = Expert
 		 //N = Confident
@@ -159,31 +159,24 @@ function appendLevel(level, name){
 	var colour = '';
 
 	switch(level){
-		case -1: plot += '1:</br>Never have, never will</p><p class="del">They may feel they have ‘missed the boat’ and that learning how to use the internet doesn\'t fit into their lives.'; colour = '#DA7357'; break;
-		case -2: plot += '2:</br>Was online but no longer</p><p class="del">They might have lost trust in the internet. They might be afraid of fraud or seeing inappropriate things online. They might have lost internet access because of cost or physical or mental capability.'; colour = '#EA8C5C'; break;
-		case -3: plot += '3:</br>Willing and unable</p><p class="del">People in this category predominantly have a positive perception of being online but have problems with low skills and they struggle to learn.'; colour = '#EC9E5A'; break;
-		case -4: plot += '4:</br>Reluctantly online</p><p class="del">They understand the general benefits of being online, they have yet to experience them personally.'; colour = '#F4C15B'; break;
-		case -5: plot += '5:</br>Learning the ropes</p><p class="del">These users are predominantly very positive about the benefits of the internet and have willingly started to engage with digital technologies.'; colour = '#F9D45E'; break;
-		case -6: plot += '6:</br>Task specific</p><p class="del">Their tasks may include online banking or updating social media. These tasks are often limited and specific.'; colour = '#EAE05F'; break;
-		case -7: plot += '7:</br>Basic digital skills</p><p class="del">These people have enough skills to be able to navigate online independently and perform all tasks at a basic level.'; colour = '#D6DA5D'; break;
-		case -8: plot += '8:</br>Confident</p><p class="del">Confident users make use of digital tools at work and in their everyday lives.'; colour = '#B0CC5B'; break;
-		case -9: plot += '9:</br>Expert</p><p class="del">Expert internet users have advanced digital skills.'; colour = '#9CC55A'; break;
+		case -1: plot += 'Never have, never will</br><span class="heading-medium">category 1</p></div><p class="del">They may feel they have ‘missed the boat’ and that learning how to use the internet doesn\'t fit into their lives.'; colour = '#DA7357'; break;
+		case -2: plot += 'Was online but no longer</br><span class="heading-medium">category 2</p></div><p class="del">They might have lost trust in the internet. They might be afraid of fraud or seeing inappropriate things online. They might have lost internet access because of cost or physical or mental capability.'; colour = '#EA8C5C'; break;
+		case -3: plot += 'Willing and unable</br><span class="heading-medium">category 3</p></div><p class="del">People in this category predominantly have a positive perception of being online but have problems with low skills and they struggle to learn.'; colour = '#EC9E5A'; break;
+		case -4: plot += 'Reluctantly online</br><span class="heading-medium">category 4</p></div><p class="del">They understand the general benefits of being online, they have yet to experience them personally.'; colour = '#F4C15B'; break;
+		case -5: plot += 'Learning the ropes</br><span class="heading-medium">category 5</p></div><p class="del">These users are predominantly very positive about the benefits of the internet and have willingly started to engage with digital technologies.'; colour = '#F9D45E'; break;
+		case -6: plot += 'Task specific</br><span class="heading-medium">category 6</p></div><p class="del">Their tasks may include online banking or updating social media. These tasks are often limited and specific.'; colour = '#EAE05F'; break;
+		case -7: plot += 'Basic digital skills</br><span class="heading-medium">category 7</p></div><p class="del">These people have enough skills to be able to navigate online independently and perform all tasks at a basic level.'; colour = '#D6DA5D'; break;
+		case -8: plot += 'Confident</br><span class="heading-medium">category 8</p></div><p class="del">Confident users make use of digital tools at work and in their everyday lives.'; colour = '#B0CC5B'; break;
+		case -9: plot += 'Expert</br><span class="heading-medium">category 9</p></div><p class="del">Expert internet users have advanced digital skills.'; colour = '#9CC55A'; break;
 	}
-	var html = "<div class='level' name='"+name+"'><p class='heading-large panel-indent' style='background-color: "+colour+";'>They are a category " + plot + "</p> <p><a id='methodModal' href='routing.jpg'>How did I get here?</a></p> <a class='button' href='access.html' style='padding: 0.60em 0.67em 0.45em 0.67em;font-weight: 700;font-size: 24px;line-height: 0.66667;'>Map another participant</a><a href='index.html'>Finish</a></div>";
+	var html = "<div class='level' name='"+name+"'><div style='padding-left: 2em;padding-right: 2em;display: inline-block; text-align: center; background-color: "+colour+";'><p class='heading-large'>Your participant is " + plot + "</p></div><p><a class='button del' href='access.html' style='padding: 0.60em 0.67em 0.45em 0.67em;font-weight: 700;font-size: 24px;line-height: 0.66667;'>Continue</a></p></div>";
 	$('.form').append(html);
 	var latestElement = document.getElementsByName(name);
 	latestElement[0].scrollIntoView();
 
-	$('.modal-content').append("<p class='heading-large panel-indent del' style='background-color: "+colour+";'>They are a category " + plot + "</p>");
+	$('.modal-content').prepend("<div id='modal' class='del' style=' width: 80%; padding-left: 2em;padding-right: 2em;display: inline-block; text-align: center; background-color: "+colour+";'><p class='heading-large'>Your participant is " + plot + "</p></div><h2 class='heading-large del'>How would you now like to continue:</h2><fieldset class='form-group del' name='next'><label class='block-label'><input id='' name='next' type='checkbox'/>View your research participant on the Digital Inclusion Dashboard</label><label class='block-label'><input id='' name='next' type='checkbox' checked/>Add another participant to this project</label></fieldset><p class='del'>Or</p><fieldset class='form-group del' name='next1'><label class='block-label'><input id='' name='next1' type='checkbox'/>Choose another service to add a research participant to</label></fieldset><p class='del'>More information about the Digital Inclusion scale can be found at <a href='https://www.gov.uk/government/publications/governmentdigital-inclusion-strategy/government-digital-inclusion-strategy'>https://www.gov.uk/government/publications/governmentdigital-inclusion-strategy/government-digital-inclusion-strategy</a></p><a class='button del' href='access.html' style='padding: 0.60em 0.67em 0.45em 0.67em;font-weight: 700;font-size: 24px;line-height: 0.66667;'>Continue</a>");
 	modal.style.display = "block";
-
-	btn = document.getElementById("methodModal");
-	// When the user clicks on the button, open the modal 
-	btn.onclick = function(e) {
-		e.preventDefault();
-		$('.modal-content').append("<p  class='del'>Placeholder text that will explain routing</p><img  class='del' src='routing.jpg'>");
-    	modal.style.display = "block";
-	}
+	document.getElementById('modal').scrollIntoView();
 }
 
 
@@ -207,14 +200,14 @@ $( document ).ready(function() {
   	// Get the modal
 modal = document.getElementById('myModal');
 
-// Get the <span> element that closes the modal
-span = document.getElementsByClassName("close")[0];
+// Get the element that closes the modal
+close = document.getElementsByClassName("close")[0];
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
+// When the user clicks close the modal
+close.onclick = function() {
     
     $('.del').remove();
-modal.style.display = "none";
+	modal.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it

@@ -40,53 +40,79 @@
 
 			<fieldset class="form-group inline question" name="accessNeed">
 				<legend class="form-label-bold" for="accessNeed">Did the user have a disability or access need?</legend>
+				<p class='form-hint'>They might have declared this on the monitoring form, or to you verbally</p>
 				<label class="block-label"><input id="accessNeedY" name="accessNeed" type="radio">Yes</label>
 				<label class="block-label"><input id="accessNeedN" name="accessNeed" type="radio">No</label>
 			</fieldset>
 
 			<div class="visuallyhidden" id="accessNeed-reveal">
-				<h2 class="heading-large" name="accessNeed-reveal">Is it one of the following:</h2>
+				<h2 class="heading-large" name="accessNeed-reveal">Which of the following needs did they have?</h2>
 			
-				<fieldset class="form-group inline question" name="hearing">
-					<legend class="form-label-bold" for="hearing">Hearing</legend>
-					<p class="form-hint">For example, </p>
-					<label class="block-label"><input id="" name="hearing" type="checkbox" data-storage='d'/>Deaf (uses British Sign Language as first or preferred language)</label>
-					<label class="block-label"><input id="" name="hearing" type="checkbox" data-storage='h'/>Hearing impairment/hearing loss</label>
-				</fieldset>
+				<details class="form-group">
+					<summary role="button">
+						<span class="summary">Hearing</span>
+					</summary>
+					<div class="panel-indent" id="researcherScore-help" style="display: none;">
+						<fieldset class="form-group inline question" name="hearing">
+							<label class="block-label"><input id="" name="hearing" type="checkbox" data-storage='d'/>Deaf (uses British Sign Language as first or preferred language)</label>
+							<label class="block-label"><input id="" name="hearing" type="checkbox" data-storage='h'/>Hearing impairment/hearing loss</label>
+							<label class="block-label"><input id="" name="hearing" type="checkbox" data-storage='o'/>Other (please specify)</label>
+						</fieldset>
+					</div>
+				</details>
 
-				<fieldset class="form-group inline question" name="physicalMobility">
-					<legend class="form-label-bold" for="physicalMobility">Physical & Mobility</legend>
-					<p class="form-hint">For example, </p>
-					<label class="block-label"><input id="" name="physicalMobility" type="checkbox" data-storage='p'/>Physical disability</label>
-					<label class="block-label"><input id="" name="physicalMobility" type="checkbox" data-storage='w'/>Wheelchair User/mobility difficulties</label>
-					<label class="block-label"><input id="" name="physicalMobility" type="checkbox" data-storage='o'/>Other (please specify)</label>
-				</fieldset>
+				<details class="form-group">
+					<summary role="button">
+						<span class="summary">Physical & Mobility</span>
+					</summary>
+					<div class="panel-indent" id="researcherScore-help" style="display: none;">
+						<fieldset class="form-group inline question" name="physicalMobility">
+							<label class="block-label"><input id="" name="physicalMobility" type="checkbox" data-storage='p'/>Physical disability</label>
+							<label class="block-label"><input id="" name="physicalMobility" type="checkbox" data-storage='w'/>Wheelchair User/mobility 	difficulties</label>
+							<label class="block-label"><input id="" name="physicalMobility" type="checkbox" data-storage='o'/>Other (please specify)</label>
+						</fieldset>
+					</div>
+				</details>
+				
+				<details class="form-group">
+					<summary role="button">
+						<span class="summary">Thinking and feeling</span>
+					</summary>
+					<div class="panel-indent" id="researcherScore-help" style="display: none;">
+						<fieldset class="form-group inline question" name="thinkingFeeling">
+							<<label class="block-label"><input id="" name="thinkingFeeling" type="checkbox" data-storage='a'/>ADHD</label>
+							<label class="block-label"><input id="" name="thinkingFeeling" type="checkbox" data-storage='s'/>Autistic Spectrum/Aspergers</label>
+							<label class="block-label"><input id="" name="thinkingFeeling" type="checkbox" data-storage='d'/>Dyslexia</label>
+							<label class="block-label"><input id="" name="thinkingFeeling" type="checkbox" data-storage='l'/>Learning difficulties</label>
+							<label class="block-label"><input id="" name="thinkingFeeling" type="checkbox" data-storage='m'/>Mental Health condition</label>
+							<label class="block-label"><input id="" name="thinkingFeeling" type="checkbox" data-storage='o'/>Other (please specify)</label>
+						</fieldset>
+					</div>
+				</details>
 
-				<fieldset class="form-group inline question" name="thinkingFeeling">
-					<legend class="form-label-bold" for="thinkingFeeling">Thinking and feeling</legend>
-					<p class="form-hint">For example, </p>
-					<label class="block-label"><input id="" name="thinkingFeeling" type="checkbox" data-storage='a'/>ADHD</label>
-					<label class="block-label"><input id="" name="thinkingFeeling" type="checkbox" data-storage='s'/>Autistic Spectrum/Aspergers</label>
-					<label class="block-label"><input id="" name="thinkingFeeling" type="checkbox" data-storage='d'/>Dyslexia</label>
-					<label class="block-label"><input id="" name="thinkingFeeling" type="checkbox" data-storage='l'/>Learning difficulties</label>
-					<label class="block-label"><input id="" name="thinkingFeeling" type="checkbox" data-storage='m'/>Mental Health condition</label>
-					<label class="block-label"><input id="" name="thinkingFeeling" type="checkbox" data-storage='o'/>Other (please specify)</label>
-				</fieldset>
+				<details class="form-group">
+					<summary role="button">
+						<span class="summary">Vision</span>
+					</summary>
+					<div class="panel-indent" id="researcherScore-help" style="display: none;">
+						<fieldset class="form-group inline question" name="vision">
+							<label class="block-label"><input id="" name="vision" type="checkbox" data-storage='b'/>Blind</label>
+							<label class="block-label"><input id="" name="vision" type="checkbox" data-storage='p'/>Partially sighted (vision impairment not corrected by glasses)</label>
+						</fieldset>
+					</div>
+				</details>
 
-				<fieldset class="form-group inline question" name="vision">
-					<legend class="form-label-bold" for="vision">Vision</legend>
-					<p class="form-hint">For example, </p>
-					<label class="block-label"><input id="" name="vision" type="checkbox" data-storage='b'/>Blind</label>
-					<label class="block-label"><input id="" name="vision" type="checkbox" data-storage='p'/>Partially sighted (vision impairment not corrected by glasses)</label>
-				</fieldset>
-
-				<fieldset class="form-group inline question" name="other">
-					<legend class="form-label-bold" for="other">Other</legend>
-					<p class="form-hint">For example, </p>
-					<label class="block-label"><input id="" name="other" type="checkbox" data-storage='1'/>Hidden disability such as epilepsy or diabetes (please specify)</label>
-					<label class="block-label"><input id="" name="other" type="checkbox" data-storage='1'/>Multiple disabilities (please specify)</label>
-					<label class="block-label"><input id="" name="other" type="checkbox" data-storage='1'/>Disability or condition not listed above (please specify)</label>
-				</fieldset>
+				<details class="form-group">
+					<summary role="button">
+						<span class="summary">Other</span>
+					</summary>
+					<div class="panel-indent" id="researcherScore-help" style="display: none;">
+						<fieldset class="form-group inline question" name="other">
+							<label class="block-label"><input id="" name="other" type="checkbox" data-storage='1'/>Hidden disability such as epilepsy or diabetes (please specify)</label>
+							<label class="block-label"><input id="" name="other" type="checkbox" data-storage='1'/>Disability or condition not listed above (please specify)</label>
+						</fieldset>
+					</div>
+				</details>
 			</div>
 		</form>
 
